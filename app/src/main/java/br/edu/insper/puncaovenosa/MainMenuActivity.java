@@ -16,12 +16,13 @@ public class MainMenuActivity extends AppCompatActivity {
         Button buttonPlay = (Button) findViewById(R.id.play_btn);
 
         assert buttonPlay != null;
-
         buttonPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainMenuActivity.this, CharacterSelectionActivity.class));
             }
         });
+
+
     }
 }
