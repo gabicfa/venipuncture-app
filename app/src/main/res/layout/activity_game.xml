@@ -9,4 +9,28 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="br.edu.insper.puncaovenosa.GameActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/blonde_girl_body"
+        android:src="@drawable/meninaloiracorpo"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/brunette_girl1_body"
+        android:src="@drawable/meninamorena1corpo"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/brunette_girl_body"
+        android:src="@drawable/meninamorenacorpo"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/meninamorena2corpo"
+        android:id="@+id/brunette_girl2_body"/>
+
 </RelativeLayout>
