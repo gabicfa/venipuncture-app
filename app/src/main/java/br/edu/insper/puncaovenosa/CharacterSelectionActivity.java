@@ -34,7 +34,7 @@ public class CharacterSelectionActivity extends AppCompatActivity {
                 imageButtons[i].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        startActivity(new Intent(CharacterSelectionActivity.this, GameActivity.class).putExtra("index", i));
+                        startActivity(new Intent(CharacterSelectionActivity.this, GameActivity.class).putExtra("i", i));
                     }
                 });
             }
