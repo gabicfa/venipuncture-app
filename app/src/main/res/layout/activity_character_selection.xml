@@ -14,33 +14,40 @@
         tools:context="br.edu.insper.puncaovenosa.CharacterSelectionActivity">
 
         <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/image_btn_blonde"
-                android:src="@drawable/meninaloira"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/image_btn_blonde"
+            android:background="@null"
+            android:src="@drawable/meninaloira"/>
+
         <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/image_btn_brunette"
-                android:src="@drawable/meninamorena"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/image_btn_brunette"
+            android:background="@null"
+            android:src="@drawable/meninamorena"/>
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/image_btn_brunette1"
+            android:background="@null"
             android:src="@drawable/meninamorena1"/>
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/image_btn_brunette2"
+            android:background="@null"
             android:src="@drawable/meninamorena2"/>
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/image_btn_brunette3"
+            android:background="@null"
             android:src="@drawable/meninamorena3"/>
 
     </LinearLayout>
+
 </ScrollView>
