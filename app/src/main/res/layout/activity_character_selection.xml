@@ -13,44 +13,28 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context="br.edu.insper.puncaovenosa.CharacterSelectionActivity">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/image_btn_blonde"
-                    android:src="@drawable/meninaloira"/>
-            <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/image_btn_brunette"
-                    android:src="@drawable/meninamorena"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageButton
+        <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/image_btn_brunette1"
-                android:src="@drawable/meninamorena1"/>
-
-            <ImageButton
+                android:id="@+id/image_btn_blonde"
+                android:src="@drawable/meninaloira"/>
+        <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/image_btn_brunette2"
-                android:src="@drawable/meninamorena2"/>
+                android:id="@+id/image_btn_brunette"
+                android:src="@drawable/meninamorena"/>
 
-        </LinearLayout>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/image_btn_brunette1"
+            android:src="@drawable/meninamorena1"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/image_btn_brunette2"
+            android:src="@drawable/meninamorena2"/>
 
         <ImageButton
             android:layout_width="wrap_content"
