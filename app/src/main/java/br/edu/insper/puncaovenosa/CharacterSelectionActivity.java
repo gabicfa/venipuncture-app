@@ -14,7 +14,7 @@ public class CharacterSelectionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_character_selection);
         //testando git
 
-        ImageButton imageButton = (ImageButton) findViewById(R.id.image_btn);
+        ImageButton imageButton = (ImageButton) findViewById(R.id.image_btn_blonde);
 
         assert imageButton != null;
         imageButton.setOnClickListener(new View.OnClickListener() {
