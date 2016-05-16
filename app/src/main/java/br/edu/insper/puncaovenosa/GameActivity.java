@@ -18,14 +18,14 @@ public class GameActivity extends AppCompatActivity {
         images = new ImageView[10];
 
         this.images[0] = (ImageView) findViewById(R.id.blonde_girl_body);
-        this.images[1] = (ImageView) findViewById(R.id.blonde_boy_body);
-        this.images[2] = (ImageView) findViewById(R.id.brunette_girl_body);
-        this.images[3] = (ImageView) findViewById(R.id.brunette_boy_body);
-        this.images[4] = (ImageView) findViewById(R.id.brunette_girl1_body);
-        this.images[5] = (ImageView) findViewById(R.id.brunette_boy1_body);
-        this.images[6] = (ImageView) findViewById(R.id.brunette_girl2_body);
-        this.images[7] = (ImageView) findViewById(R.id.brunette_boy2_body);
-        this.images[8] = (ImageView) findViewById(R.id.brunette_girl3_body);
+        this.images[1] = (ImageView) findViewById(R.id.brunette_girl_body);
+        this.images[2] = (ImageView) findViewById(R.id.brunette_girl1_body);
+        this.images[3] = (ImageView) findViewById(R.id.brunette_girl2_body);
+        this.images[4] = (ImageView) findViewById(R.id.brunette_girl3_body);
+        this.images[5] = (ImageView) findViewById(R.id.blonde_boy_body);
+        this.images[6] = (ImageView) findViewById(R.id.brunette_boy_body);
+        this.images[7] = (ImageView) findViewById(R.id.brunette_boy1_body);
+        this.images[8] = (ImageView) findViewById(R.id.brunette_boy2_body);
         // TODO: Corpo do menino, deixei este como provisório.
         this.images[9] = (ImageView) findViewById(R.id.brunette_girl3_body);
 
