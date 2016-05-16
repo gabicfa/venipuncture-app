@@ -12,6 +12,12 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/bed"
+        android:src="@drawable/hospital_bed"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:id="@+id/blonde_girl_body"
         android:src="@drawable/meninaloiracorpo"/>
 
