@@ -13,40 +13,132 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context="br.edu.insper.puncaovenosa.CharacterSelectionActivity">
 
-        <ImageButton
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/image_btn_blonde"
-            android:background="@null"
-            android:src="@drawable/meninaloira"/>
+            android:orientation="horizontal">
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/image_btn_brunette"
-            android:background="@null"
-            android:src="@drawable/meninamorena"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/image_btn_blonde"
+                android:layout_weight="1"
+                android:layout_gravity="left"
+                android:background="@null"
+                android:src="@drawable/meninaloira"/>
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/image_btn_brunette1"
-            android:background="@null"
-            android:src="@drawable/meninamorena1"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/image_btn_blonde_boy"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                android:background="@null"
+                android:src="@drawable/meninoloiro"/>
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/image_btn_brunette2"
-            android:background="@null"
-            android:src="@drawable/meninamorena2"/>
+        </LinearLayout>
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/image_btn_brunette3"
-            android:background="@null"
-            android:src="@drawable/meninamorena3"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/image_btn_brunette"
+                android:layout_weight="1"
+                android:layout_gravity="left"
+                android:background="@null"
+                android:src="@drawable/meninamorena"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/image_btn_brunette_boy"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                android:background="@null"
+                android:src="@drawable/meninomoreno"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/image_btn_brunette1"
+                android:layout_weight="1"
+                android:layout_gravity="left"
+                android:background="@null"
+                android:src="@drawable/meninamorena1"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/image_btn_brunette1_boy"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                android:background="@null"
+                android:src="@drawable/meninomoreno1"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/image_btn_brunette2"
+                android:layout_weight="1"
+                android:layout_gravity="left"
+                android:background="@null"
+                android:src="@drawable/meninamorena2"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/image_btn_brunette2_boy"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                android:background="@null"
+                android:src="@drawable/meninomoreno2"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/image_btn_brunette3"
+                android:layout_weight="1"
+                android:layout_gravity="left"
+                android:background="@null"
+                android:src="@drawable/meninamorena3"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/image_btn_brunette3_boy"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                android:background="@null"
+                android:src="@drawable/meninomoreno3"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
