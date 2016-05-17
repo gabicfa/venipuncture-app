@@ -17,55 +17,55 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="400dp"
         android:id="@+id/blonde_girl_body"
         android:src="@drawable/meninaloiracorpo"/>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="400dp"
         android:id="@+id/brunette_girl1_body"
         android:src="@drawable/meninamorena1corpo"/>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="400dp"
         android:id="@+id/brunette_girl_body"
         android:src="@drawable/meninamorenacorpo"/>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="400dp"
         android:src="@drawable/meninamorena2corpo"
         android:id="@+id/brunette_girl2_body"/>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="400dp"
         android:src="@drawable/meninamorenacorpo3"
         android:id="@+id/brunette_girl3_body"/>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="400dp"
         android:src="@drawable/meninoloirocorpo"
         android:id="@+id/blonde_boy_body"/>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="400dp"
         android:src="@drawable/meninomorenocorpo"
         android:id="@+id/brunette_boy_body"/>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="400dp"
         android:src="@drawable/meninomoreno1corpo"
         android:id="@+id/brunette_boy1_body"/>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="400dp"
         android:src="@drawable/meninomoreno2corpo"
         android:id="@+id/brunette_boy2_body"/>
 

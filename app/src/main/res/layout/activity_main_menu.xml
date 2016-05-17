@@ -9,12 +9,32 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="br.edu.insper.puncaovenosa.MainMenuActivity">
 
-    <Button
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="@string/jogar"
-        android:background="#FF0000"
-        android:id="@+id/play_btn"/>
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="400dp"
+            android:layout_gravity="center"
+            android:id="@+id/image"
+            android:src="@drawable/maindesenhop"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="fill_parent"
+            android:layout_height="850dp"
+            android:layout_centerInParent="true"
+            android:id="@+id/play_btn"
+            android:background="@null"
+            android:src="@drawable/botaojogar"/>
+    </LinearLayout>
+
 
 </RelativeLayout>
