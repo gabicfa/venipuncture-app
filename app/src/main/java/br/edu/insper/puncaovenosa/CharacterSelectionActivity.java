@@ -31,7 +31,7 @@ public class CharacterSelectionActivity extends AppCompatActivity {
             }
         });
 
-        imageButtons[2] = (ImageButton) findViewById(R.id.image_btn_brunette1);
+        imageButtons[2] = (ImageButton) findViewById(R.id.image_btn_ginger);
         imageButtons[2].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,7 +47,7 @@ public class CharacterSelectionActivity extends AppCompatActivity {
             }
         });
 
-        imageButtons[4] = (ImageButton) findViewById(R.id.image_btn_brunette3);
+        imageButtons[4] = (ImageButton) findViewById(R.id.image_btn_bold);
         imageButtons[4].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,7 +71,7 @@ public class CharacterSelectionActivity extends AppCompatActivity {
             }
         });
 
-        imageButtons[7] = (ImageButton) findViewById(R.id.image_btn_brunette1_boy);
+        imageButtons[7] = (ImageButton) findViewById(R.id.image_btn_ginger_boy);
         imageButtons[7].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,7 +87,7 @@ public class CharacterSelectionActivity extends AppCompatActivity {
             }
         });
 
-        imageButtons[9] = (ImageButton) findViewById(R.id.image_btn_brunette3_boy);
+        imageButtons[9] = (ImageButton) findViewById(R.id.image_btn_bold_boy);
         imageButtons[9].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

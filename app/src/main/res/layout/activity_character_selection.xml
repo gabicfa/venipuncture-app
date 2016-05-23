@@ -25,7 +25,7 @@
                 android:layout_weight="1"
                 android:layout_gravity="left"
                 android:background="@null"
-                android:src="@drawable/meninaloira"/>
+                android:src="@drawable/girl1"/>
 
             <ImageButton
                 android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
                 android:layout_weight="1"
                 android:layout_gravity="right"
                 android:background="@null"
-                android:src="@drawable/meninoloiro"/>
+                android:src="@drawable/boy1"/>
 
         </LinearLayout>
 
@@ -50,7 +50,7 @@
                 android:layout_weight="1"
                 android:layout_gravity="left"
                 android:background="@null"
-                android:src="@drawable/meninamorena"/>
+                android:src="@drawable/girl2"/>
 
             <ImageButton
                 android:layout_width="wrap_content"
@@ -59,7 +59,7 @@
                 android:layout_weight="1"
                 android:layout_gravity="right"
                 android:background="@null"
-                android:src="@drawable/meninomoreno"/>
+                android:src="@drawable/boy2"/>
 
         </LinearLayout>
 
@@ -72,20 +72,20 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/image_btn_brunette1"
+                android:id="@+id/image_btn_ginger"
                 android:layout_weight="1"
                 android:layout_gravity="left"
                 android:background="@null"
-                android:src="@drawable/meninamorena1"/>
+                android:src="@drawable/girl3"/>
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/image_btn_brunette1_boy"
+                android:id="@+id/image_btn_ginger_boy"
                 android:layout_weight="1"
                 android:layout_gravity="right"
                 android:background="@null"
-                android:src="@drawable/meninomoreno1"/>
+                android:src="@drawable/boy3"/>
 
         </LinearLayout>
 
@@ -102,7 +102,7 @@
                 android:layout_weight="1"
                 android:layout_gravity="left"
                 android:background="@null"
-                android:src="@drawable/meninamorena2"/>
+                android:src="@drawable/girl4"/>
 
             <ImageButton
                 android:layout_width="wrap_content"
@@ -111,7 +111,7 @@
                 android:layout_weight="1"
                 android:layout_gravity="right"
                 android:background="@null"
-                android:src="@drawable/meninomoreno2"/>
+                android:src="@drawable/boy4"/>
 
         </LinearLayout>
 
@@ -123,20 +123,20 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/image_btn_brunette3"
+                android:id="@+id/image_btn_bold"
                 android:layout_weight="1"
                 android:layout_gravity="left"
                 android:background="@null"
-                android:src="@drawable/meninamorena3"/>
+                android:src="@drawable/girl5"/>
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/image_btn_brunette3_boy"
+                android:id="@+id/image_btn_bold_boy"
                 android:layout_weight="1"
                 android:layout_gravity="right"
                 android:background="@null"
-                android:src="@drawable/meninomoreno3"/>
+                android:src="@drawable/boy5"/>
 
         </LinearLayout>
 
