@@ -1,8 +1,8 @@
 package br.edu.insper.puncaovenosa;
 
-import android.provider.Settings;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -30,7 +30,16 @@ public class GameActivity extends AppCompatActivity {
         this.images[9] = (ImageView) findViewById(R.id.brunette_girl3_body);
 
         for(ImageView image : this.images) {
+            // PC - Declaramos a imagem da criança na cama como invisível, além disso, definimos um
+            //      listener para descobrir se a imagem foi ou não clicada
             image.setVisibility(View.INVISIBLE);
+            image.setClickable(true);
+            image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(GameActivity.this, ProcedureActivity.class));
+                }
+            });
         }
 
         index = getIntent().getIntExtra("i", -1);
