@@ -6,54 +6,77 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 public class ProcedureActivity extends AppCompatActivity {
-    int windowwidth;
-    int windowheight;
 
-    private ActionBar.LayoutParams layoutParams ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_procedure);
 
-        windowwidth = getWindowManager().getDefaultDisplay().getWidth();
-        windowheight = getWindowManager().getDefaultDisplay().getHeight();
-        final ImageView balls = (ImageView)findViewById(R.id.algodao);
+        RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.procedure_activity);
 
-        assert balls != null;
+        final ImageView cotton = (ImageView) findViewById(R.id.algodao);
+        final ImageView shot = (ImageView) findViewById(R.id.seringa);
 
-        balls.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                ActionBar.LayoutParams layoutParams = (ActionBar.LayoutParams) balls.getLayoutParams();
+        assert cotton != null;
 
-                switch(event.getAction())
-                {
-                    case MotionEvent.ACTION_DOWN:
-                        break;
-                    case MotionEvent.ACTION_MOVE:
-                        int x_cord = (int)event.getRawX();
-                        int y_cord = (int)event.getRawY();
-
-                        if(x_cord > windowwidth){
-                            x_cord = windowwidth;
-                        }
-                        if(y_cord > windowheight){
-                            y_cord = windowheight;
-                        }
-
-                        layoutParams.leftMargin = x_cord - 25;
-                        layoutParams.topMargin = y_cord - 75;
-
-                        balls.setLayoutParams(layoutParams);
-                        break;
-                    default:
-                        break;
-                }
+        assert myLayout != null;
+        myLayout.setOnTouchListener(new RelativeLayout.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent m) {
+                handleTouch(m);
                 return true;
             }
         });
+    }
+
+    void handleTouch(MotionEvent m)
+    {
+        final ImageView cotton = (ImageView) findViewById(R.id.algodao);
+        final ImageView shot = (ImageView) findViewById(R.id.seringa);
+
+        int pointerCount = m.getPointerCount();
+
+        for (int i = 0; i < pointerCount; i++)
+        {
+            int x = (int) m.getX(i);
+            int y = (int) m.getY(i);
+            int id = m.getPointerId(i);
+            int action = m.getActionMasked();
+            int actionIndex = m.getActionIndex();
+            String actionString;
+
+
+            switch (action)
+            {
+                case MotionEvent.ACTION_DOWN:
+                    actionString = "DOWN";
+                    break;
+                case MotionEvent.ACTION_UP:
+                    actionString = "UP";
+                    break;
+                case MotionEvent.ACTION_POINTER_DOWN:
+                    actionString = "PNTR DOWN";
+                    break;
+                case MotionEvent.ACTION_POINTER_UP:
+                    actionString = "PNTR UP";
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    actionString = "MOVE";
+                    break;
+                default:
+                    actionString = "";
+            }
+
+            String touchStatus = "Action: " + actionString + " Index: " + actionIndex + " ID: " + id + " X: " + x + " Y: " + y;
+
+            if (id == 0)
+                System.out.println(touchStatus);
+            else
+                System.out.println(touchStatus);
+        }
     }
 }
