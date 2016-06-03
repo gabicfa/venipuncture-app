@@ -23,7 +23,5 @@ public class MainMenuActivity extends AppCompatActivity {
                 startActivity(new Intent(MainMenuActivity.this, CharacterSelectionActivity.class));
             }
         });
-
-
     }
 }
