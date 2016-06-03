@@ -1,13 +1,12 @@
 package br.edu.insper.puncaovenosa;
 
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 public class ProcedureActivity extends AppCompatActivity {
 
@@ -15,12 +14,13 @@ public class ProcedureActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_procedure);
 
         RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.procedure_activity);
 
         final ImageView cotton = (ImageView) findViewById(R.id.algodao);
-        final ImageView shot = (ImageView) findViewById(R.id.seringa);
+//        final ImageView shot = (ImageView) findViewById(R.id.seringa);
 
         assert cotton != null;
 
