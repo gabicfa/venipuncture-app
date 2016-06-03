@@ -7,9 +7,28 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 public class ProcedureActivity extends AppCompatActivity {
 
+    private int counter = 300; // PC - Contador para saber se o braço fora limpo
+    private int level   = 0;   // PC - "contador" que define a etapa do tratamento que estamos
+
+    private ImageView cotton;
+    private ImageView garrote;
+    private ImageView shot;
+    private int originalCottonX;
+    private int originalCottonY;
+    private int cottonWidth;
+    private int cottonHeight;
+    private int originalGarroteX;
+    private int originalGarroteY;
+    private int garroteWidth;
+    private int garroteHeight;
+    private int originalShotX;
+    private int originalShotY;
+    private int shotWidth;
+    private int shotHeight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,10 +38,17 @@ public class ProcedureActivity extends AppCompatActivity {
 
         RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.procedure_activity);
 
-        final ImageView cotton = (ImageView) findViewById(R.id.algodao);
-//        final ImageView shot = (ImageView) findViewById(R.id.seringa);
+        this.cotton  = (ImageView) findViewById(R.id.algodao);
+        this.garrote = (ImageView) findViewById(R.id.garrote);
+        this.shot    = (ImageView) findViewById(R.id.seringa);
 
-        assert cotton != null;
+        this.originalCottonX  = (int) this.cotton.getX();
+        this.originalCottonY  = (int) this.cotton.getY();
+        this.originalGarroteX = (int) this.garrote.getX();
+        this.originalGarroteY = (int) this.garrote.getY();
+        this.originalShotX    = (int) this.shot.getX();
+        this.originalShotY    = (int) this.shot.getY();
+        System.out.println("Original cotton X: " + originalCottonX);
 
         assert myLayout != null;
         myLayout.setOnTouchListener(new RelativeLayout.OnTouchListener() {
@@ -33,26 +59,49 @@ public class ProcedureActivity extends AppCompatActivity {
         });
     }
 
+    public int getOriginalX(ImageView image) {
+        if(image == cotton)
+            return this.originalCottonX;
+        else if(image == shot)
+            return this.originalShotX;
+        else if(image == garrote)
+            return this.originalGarroteX;
+        else
+            return -1;
+    }
+
+    public int getOriginalY(ImageView image) {
+        if(image == cotton)
+            return this.originalCottonY;
+        else if(image == shot)
+            return this.originalShotY;
+        else if(image == garrote)
+            return this.originalGarroteY;
+        else
+            return -1;
+    }
+
     void handleTouch(MotionEvent m)
     {
-        final ImageView cotton = (ImageView) findViewById(R.id.algodao);
-        final int cottonWidth = cotton.getWidth();
-        final int cottonHeight = cotton.getHeight();
-
-//        final ImageView shot = (ImageView) findViewById(R.id.seringa);
-
         int pointerCount = m.getPointerCount();
 
         for (int i = 0; i < pointerCount; i++)
         {
+            this.cottonWidth   = cotton.getWidth();
+            this.cottonHeight  = cotton.getHeight();
+            this.garroteWidth  = garrote.getWidth();
+            this.garroteHeight = garrote.getHeight();
+            this.shotWidth     = shot.getWidth();
+            this.shotHeight    = shot.getHeight();
+
             // PC - A posição que reconhecemos é a superior esquerda da
             //      imagem, no entanto, queremos que o nosso usuário a mova
             //      com base no seu centro, por isso somamos metade da sua
             //      altura e largura
             int x = (int) m.getX(i);
             int y = (int) m.getY(i);
-            x -= cottonWidth / 2;
-            y -= cottonHeight / 2;
+            x -= this.cottonWidth / 2;
+            y -= this.cottonHeight / 2;
 //
 //            int id = m.getPointerId(i);
 //            int action = m.getActionMasked();
@@ -95,12 +144,29 @@ public class ProcedureActivity extends AppCompatActivity {
             // PC - Precisamos checar se a pessoa está apertando em um lugar relativamente proximo
             //      a onde esta o algodão (ou estava), se estiver, podemos movê-lo, caso contrário,
             //      nada acontece.
-            if((x - cotton.getX() <= 100 && x - cotton.getX() >= -100) && (y - cotton.getY() <= 100 && y - cotton.getY() >= -100)) {
-                // PC - Movendo o algodão
-                cotton.setX(x);
-                cotton.setY(y);
-            }
+            if(this.counter > 0) {
+                if ((x - this.cotton.getX() <= 100 && x - this.cotton.getX() >= -100) && (y - this.cotton.getY() <= 100 && y -this.cotton.getY() >= -100)) {
+                    // PC - Movendo o algodão
+                    this.cotton.setX(x);
+                    this.cotton.setY(y);
+                    this.counter--;
+                    System.out.println("Counter: " + this.counter);
+                }
+            } else {
+                Toast.makeText(getApplicationContext(), "Limpou", Toast.LENGTH_SHORT).show();
 
+                int originalX = getOriginalX(cotton);
+                int originalY = getOriginalY(cotton);
+
+                if((originalX > 0) && (originalY > 0)) {
+                    System.out.println("uhul");
+                    this.cotton.setX(originalX);
+                    this.cotton.setY(originalY);
+                }
+            }
         }
     }
+
+
+
 }
