@@ -18,8 +18,9 @@
         <activity android:name=".CharacterSelectionActivity" />
         <activity android:name=".GameActivity" />
         <activity
-            android:name=".ProcedureActivity"
-            android:theme="@style/NoActionBar"/>
+            android:name=".CottomActivity"
+            android:theme="@style/NoActionBar" />
+        <activity android:name=".CateterActivity"></activity>
     </application>
 
 </manifest>

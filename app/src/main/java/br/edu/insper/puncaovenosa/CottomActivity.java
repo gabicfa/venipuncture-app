@@ -1,5 +1,6 @@
 package br.edu.insper.puncaovenosa;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -9,45 +10,47 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-public class ProcedureActivity extends AppCompatActivity {
+public class CottomActivity extends AppCompatActivity {
 
-    private int counter = 300; // PC - Contador para saber se o braço fora limpo
-    private int level   = 0;   // PC - "contador" que define a etapa do tratamento que estamos
+    private int counter = 250; // PC - Contador para saber se o braço fora limpo
+    private int level   = 1;   // PC - "contador" que define a etapa do tratamento que estamos
 
     private ImageView cotton;
-    private ImageView garrote;
-    private ImageView shot;
+//    private ImageView garrote;
+//    private ImageView shot;
+
     private int originalCottonX;
     private int originalCottonY;
+
     private int cottonWidth;
     private int cottonHeight;
-    private int originalGarroteX;
-    private int originalGarroteY;
-    private int garroteWidth;
-    private int garroteHeight;
-    private int originalShotX;
-    private int originalShotY;
-    private int shotWidth;
-    private int shotHeight;
+//    private int originalGarroteX;
+//    private int originalGarroteY;
+//    private int garroteWidth;
+//    private int garroteHeight;
+//    private int originalShotX;
+//    private int originalShotY;
+//    private int shotWidth;
+//    private int shotHeight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_procedure);
+        setContentView(R.layout.activity_cottom);
 
-        RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.procedure_activity);
+        RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.cottom_activity);
 
         this.cotton  = (ImageView) findViewById(R.id.algodao);
-        this.garrote = (ImageView) findViewById(R.id.garrote);
-        this.shot    = (ImageView) findViewById(R.id.seringa);
+//        this.garrote = (ImageView) findViewById(R.id.garrote);
+//        this.shot    = (ImageView) findViewById(R.id.seringa);
 
         this.originalCottonX  = (int) this.cotton.getX();
         this.originalCottonY  = (int) this.cotton.getY();
-        this.originalGarroteX = (int) this.garrote.getX();
-        this.originalGarroteY = (int) this.garrote.getY();
-        this.originalShotX    = (int) this.shot.getX();
-        this.originalShotY    = (int) this.shot.getY();
+//        this.originalGarroteX = (int) this.garrote.getX();
+//        this.originalGarroteY = (int) this.garrote.getY();
+//        this.originalShotX    = (int) this.shot.getX();
+//        this.originalShotY    = (int) this.shot.getY();
         System.out.println("Original cotton X: " + originalCottonX);
 
         assert myLayout != null;
@@ -62,10 +65,10 @@ public class ProcedureActivity extends AppCompatActivity {
     public int getOriginalX(ImageView image) {
         if(image == cotton)
             return this.originalCottonX;
-        else if(image == shot)
-            return this.originalShotX;
-        else if(image == garrote)
-            return this.originalGarroteX;
+//        else if(image == shot)
+//            return this.originalShotX;
+//        else if(image == garrote)
+//            return this.originalGarroteX;
         else
             return -1;
     }
@@ -73,10 +76,10 @@ public class ProcedureActivity extends AppCompatActivity {
     public int getOriginalY(ImageView image) {
         if(image == cotton)
             return this.originalCottonY;
-        else if(image == shot)
-            return this.originalShotY;
-        else if(image == garrote)
-            return this.originalGarroteY;
+//        else if(image == shot)
+//            return this.originalShotY;
+//        else if(image == garrote)
+//            return this.originalGarroteY;
         else
             return -1;
     }
@@ -85,14 +88,13 @@ public class ProcedureActivity extends AppCompatActivity {
     {
         int pointerCount = m.getPointerCount();
 
-        for (int i = 0; i < pointerCount; i++)
-        {
-            this.cottonWidth   = cotton.getWidth();
-            this.cottonHeight  = cotton.getHeight();
-            this.garroteWidth  = garrote.getWidth();
-            this.garroteHeight = garrote.getHeight();
-            this.shotWidth     = shot.getWidth();
-            this.shotHeight    = shot.getHeight();
+        for (int i = 0; i < pointerCount; i++) {
+            this.cottonWidth = cotton.getWidth();
+            this.cottonHeight = cotton.getHeight();
+//            this.garroteWidth  = garrote.getWidth();
+//            this.garroteHeight = garrote.getHeight();
+//            this.shotWidth     = shot.getWidth();
+//            this.shotHeight    = shot.getHeight();
 
             // PC - A posição que reconhecemos é a superior esquerda da
             //      imagem, no entanto, queremos que o nosso usuário a mova
@@ -153,10 +155,13 @@ public class ProcedureActivity extends AppCompatActivity {
                     System.out.println("Counter: " + this.counter);
                 }
             } else {
-                Toast.makeText(getApplicationContext(), "Limpou", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Limpou", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(CottomActivity.this, CateterActivity.class));
 
                 int originalX = getOriginalX(cotton);
+                System.out.println(originalX);
                 int originalY = getOriginalY(cotton);
+                System.out.print(originalY);
 
                 if((originalX > 0) && (originalY > 0)) {
                     System.out.println("uhul");
