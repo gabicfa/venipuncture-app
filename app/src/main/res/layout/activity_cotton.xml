@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/cottom_activity"
+    android:id="@+id/cotton_activity"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/thumbnail_arm2"
-    tools:context=".CottomActivity">
+    tools:context=".CottonActivity">
 
 
     <LinearLayout
@@ -47,8 +47,6 @@
             android:layout_height="70dp"
             android:id="@+id/adesivo"
             android:src="@drawable/adesivo"/>
-
-
 
 
     </LinearLayout>

@@ -37,7 +37,7 @@ public class GameActivity extends AppCompatActivity {
             image.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(GameActivity.this, CottomActivity.class));
+                    startActivity(new Intent(GameActivity.this, CottonActivity.class));
                 }
             });
         }

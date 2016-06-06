@@ -11,7 +11,7 @@
     android:background="@drawable/thumbnail_arm2"
     tools:context=".CateterActivity">
 
-<!--<LinearLayout2-->
+<!--<RelativeLayout-->
 
     <!--android:layout_width="300dp"-->
     <!--android:layout_height="400dp"-->
@@ -25,7 +25,7 @@
         <!--android:id="@+id/circulo"-->
         <!--android:src="@drawable/red_circle"/>-->
 
-<!--</LinearLayout2>-->
+<!--</RelativeLayout>-->
 
 
 <LinearLayout

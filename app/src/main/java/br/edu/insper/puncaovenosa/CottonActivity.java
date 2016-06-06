@@ -8,9 +8,8 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
-public class CottomActivity extends AppCompatActivity {
+public class CottonActivity extends AppCompatActivity {
 
     private int counter = 250; // PC - Contador para saber se o braço fora limpo
     private int level   = 1;   // PC - "contador" que define a etapa do tratamento que estamos
@@ -37,15 +36,16 @@ public class CottomActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_cottom);
+        setContentView(R.layout.activity_cotton);
 
-        RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.cottom_activity);
+        RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.cotton_activity);
 
         this.cotton  = (ImageView) findViewById(R.id.algodao);
 //        this.garrote = (ImageView) findViewById(R.id.garrote);
 //        this.shot    = (ImageView) findViewById(R.id.seringa);
 
         this.originalCottonX  = (int) this.cotton.getX();
+        System.out.println(originalCottonX);
         this.originalCottonY  = (int) this.cotton.getY();
 //        this.originalGarroteX = (int) this.garrote.getX();
 //        this.originalGarroteY = (int) this.garrote.getY();
@@ -62,27 +62,27 @@ public class CottomActivity extends AppCompatActivity {
         });
     }
 
-    public int getOriginalX(ImageView image) {
-        if(image == cotton)
-            return this.originalCottonX;
+//    public int getOriginalX(ImageView image) {
+//        if(image == cotton)
+//            return this.originalCottonX;
 //        else if(image == shot)
 //            return this.originalShotX;
 //        else if(image == garrote)
 //            return this.originalGarroteX;
-        else
-            return -1;
-    }
-
-    public int getOriginalY(ImageView image) {
-        if(image == cotton)
-            return this.originalCottonY;
+//        else
+//            return -1;
+//    }
+//
+//    public int getOriginalY(ImageView image) {
+//        if(image == cotton)
+//            return this.originalCottonY;
 //        else if(image == shot)
 //            return this.originalShotY;
 //        else if(image == garrote)
 //            return this.originalGarroteY;
-        else
-            return -1;
-    }
+//        else
+//            return -1;
+//    }
 
     void handleTouch(MotionEvent m)
     {
@@ -156,18 +156,18 @@ public class CottomActivity extends AppCompatActivity {
                 }
             } else {
                 //Toast.makeText(getApplicationContext(), "Limpou", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(CottomActivity.this, CateterActivity.class));
+                startActivity(new Intent(CottonActivity.this, CateterActivity.class));
 
-                int originalX = getOriginalX(cotton);
-                System.out.println(originalX);
-                int originalY = getOriginalY(cotton);
-                System.out.print(originalY);
-
-                if((originalX > 0) && (originalY > 0)) {
-                    System.out.println("uhul");
-                    this.cotton.setX(originalX);
-                    this.cotton.setY(originalY);
-                }
+//                int originalX = getOriginalX(cotton);
+//                System.out.println(originalX);
+//                int originalY = getOriginalY(cotton);
+//                System.out.print(originalY);
+//
+//                if((originalX > 0) && (originalY > 0)) {
+//                    System.out.println("uhul");
+//                    this.cotton.setX(originalX);
+//                    this.cotton.setY(originalY);
+//                }
             }
         }
     }
