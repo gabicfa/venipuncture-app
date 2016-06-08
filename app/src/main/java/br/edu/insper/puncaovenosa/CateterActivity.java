@@ -26,18 +26,15 @@ public class CateterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_cateter);
 
         RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.cateter_activity);
 
-
         this.cateter = (ImageView) findViewById(R.id.cateter);
         this.circulo = (ImageView) findViewById(R.id.circulo);
 
-        assert this.circulo != null;
-        this.circulo.setX(50);
-        this.circulo.setY(200);
+        this.cateter.setX(200);
+        this.cateter.setY(500);
 
         this.originalCateterX    = (int) this.cateter.getX();
         this.originalCateterY    = (int) this.cateter.getY();

@@ -11,18 +11,17 @@
     android:background="@drawable/thumbnail_arm2"
     tools:context=".CateterActivity">
 
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:id="@+id/circulo"
+        android:src="@drawable/red_circle"/>
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:gravity="bottom"
         android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            android:id="@+id/circulo"
-            android:src="@drawable/red_circle"/>
-
 
         <ImageView
             android:layout_width="70dp"

@@ -35,7 +35,6 @@ public class CottonActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_cotton);
 
         RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.cotton_activity);
