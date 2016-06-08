@@ -20,7 +20,9 @@
         <activity
             android:name=".CottonActivity"
             android:theme="@style/NoActionBar" />
-        <activity android:name=".CateterActivity"></activity>
+        <activity
+            android:name=".CateterActivity"
+            android:theme="@style/NoActionBar"/>
     </application>
 
 </manifest>

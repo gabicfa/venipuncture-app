@@ -12,46 +12,19 @@ import android.widget.RelativeLayout;
 public class CottonActivity extends AppCompatActivity {
 
     private int counter = 250; // PC - Contador para saber se o braço fora limpo
-    private int level   = 1;   // PC - "contador" que define a etapa do tratamento que estamos
 
     private ImageView cotton;
-//    private ImageView garrote;
-//    private ImageView shot;
 
-    private int originalCottonX;
-    private int originalCottonY;
-
-    private int cottonWidth;
-    private int cottonHeight;
-//    private int originalGarroteX;
-//    private int originalGarroteY;
-//    private int garroteWidth;
-//    private int garroteHeight;
-//    private int originalShotX;
-//    private int originalShotY;
-//    private int shotWidth;
-//    private int shotHeight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_cotton);
 
         RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.cotton_activity);
 
         this.cotton  = (ImageView) findViewById(R.id.algodao);
-//        this.garrote = (ImageView) findViewById(R.id.garrote);
-//        this.shot    = (ImageView) findViewById(R.id.seringa);
 
-        this.originalCottonX  = (int) this.cotton.getX();
-        System.out.println(originalCottonX);
-        this.originalCottonY  = (int) this.cotton.getY();
-//        this.originalGarroteX = (int) this.garrote.getX();
-//        this.originalGarroteY = (int) this.garrote.getY();
-//        this.originalShotX    = (int) this.shot.getX();
-//        this.originalShotY    = (int) this.shot.getY();
-        System.out.println("Original cotton X: " + originalCottonX);
 
         assert myLayout != null;
         myLayout.setOnTouchListener(new RelativeLayout.OnTouchListener() {
@@ -62,39 +35,15 @@ public class CottonActivity extends AppCompatActivity {
         });
     }
 
-    public int getOriginalX(ImageView image) {
-        if(image == cotton)
-            return this.originalCottonX;
-//        else if(image == shot)
-//            return this.originalShotX;
-//        else if(image == garrote)
-//            return this.originalGarroteX;
-        else
-            return -1;
-    }
-
-    public int getOriginalY(ImageView image) {
-        if(image == cotton)
-            return this.originalCottonY;
-//        else if(image == shot)
-//            return this.originalShotY;
-//        else if(image == garrote)
-//            return this.originalGarroteY;
-        else
-            return -1;
-    }
 
     void handleTouch(MotionEvent m)
     {
         int pointerCount = m.getPointerCount();
 
         for (int i = 0; i < pointerCount; i++) {
-            this.cottonWidth = cotton.getWidth();
-            this.cottonHeight = cotton.getHeight();
-//            this.garroteWidth  = garrote.getWidth();
-//            this.garroteHeight = garrote.getHeight();
-//            this.shotWidth     = shot.getWidth();
-//            this.shotHeight    = shot.getHeight();
+            int cottonWidth = cotton.getWidth();
+            int cottonHeight = cotton.getHeight();
+
 
             // PC - A posição que reconhecemos é a superior esquerda da
             //      imagem, no entanto, queremos que o nosso usuário a mova
@@ -102,8 +51,8 @@ public class CottonActivity extends AppCompatActivity {
             //      altura e largura
             int x = (int) m.getX(i);
             int y = (int) m.getY(i);
-            x -= this.cottonWidth / 2;
-            y -= this.cottonHeight / 2;
+            x -= cottonWidth / 2;
+            y -= cottonHeight / 2;
 //
 //            int id = m.getPointerId(i);
 //            int action = m.getActionMasked();
@@ -157,13 +106,6 @@ public class CottonActivity extends AppCompatActivity {
             } else {
                 //Toast.makeText(getApplicationContext(), "Limpou", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(CottonActivity.this, CateterActivity.class));
-
-                int originalX = getOriginalX(cotton);
-                System.out.println(originalX);
-                int originalY = getOriginalY(cotton);
-                System.out.print(originalY);
-
-
             }
         }
     }
