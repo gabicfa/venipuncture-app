@@ -11,17 +11,8 @@ import android.widget.RelativeLayout;
 
 public class CateterActivity extends AppCompatActivity {
 
-    private int level   = 2;   // PC - "contador" que define a etapa do tratamento que estamos
-
-
     private ImageView cateter;
     private ImageView circulo;
-
-    private int originalCateterX;
-    private int originalCateterY;
-
-    private int cateterWidth;
-    private int cateterHeight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +27,6 @@ public class CateterActivity extends AppCompatActivity {
         this.cateter.setX(200);
         this.cateter.setY(500);
 
-        this.originalCateterX    = (int) this.cateter.getX();
-        this.originalCateterY    = (int) this.cateter.getY();
-        System.out.println("Original cateter X: " + originalCateterX);
-
         assert myLayout != null;
         myLayout.setOnTouchListener(new RelativeLayout.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent m) {
@@ -49,33 +36,18 @@ public class CateterActivity extends AppCompatActivity {
         });
     }
 
-    public int getOriginalX(ImageView image) {
-        if (image == cateter)
-            return this.originalCateterX;
-        else
-            return -1;
-    }
-
-    public int getOriginalY(ImageView image) {
-
-        if(image == cateter)
-            return this.originalCateterY;
-        else
-            return -1;
-    }
-
     void handleTouch(MotionEvent m) {
         int pointerCount = m.getPointerCount();
 
         for (int i = 0; i < pointerCount; i++) {
 
-            this.cateterWidth = cateter.getWidth();
-            this.cateterHeight = cateter.getHeight();
+            int cateterWidth = cateter.getWidth();
+            int cateterHeight = cateter.getHeight();
 
             int x = (int) m.getX(i);
             int y = (int) m.getY(i);
-            x -= this.cateterWidth / 2;
-            y -= this.cateterHeight / 2;
+            x -= cateterWidth / 2;
+            y -= cateterHeight / 2;
 
 
             System.out.println("Cateter X: " + cateter.getX() + ", finger X: " + x);
@@ -86,8 +58,6 @@ public class CateterActivity extends AppCompatActivity {
                 // PC - Movendo o cateter
                 this.cateter.setX(x);
                 this.cateter.setY(y);
-
-
             }
         }
     }
