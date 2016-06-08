@@ -12,7 +12,6 @@ import android.widget.RelativeLayout;
 public class CateterActivity extends AppCompatActivity {
 
     private ImageView cateter;
-    private ImageView circulo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +21,6 @@ public class CateterActivity extends AppCompatActivity {
         RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.cateter_activity);
 
         this.cateter = (ImageView) findViewById(R.id.cateter);
-        this.circulo = (ImageView) findViewById(R.id.circulo);
-
-        this.cateter.setX(200);
-        this.cateter.setY(500);
 
         assert myLayout != null;
         myLayout.setOnTouchListener(new RelativeLayout.OnTouchListener() {

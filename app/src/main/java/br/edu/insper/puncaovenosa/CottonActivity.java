@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 
 public class CottonActivity extends AppCompatActivity {
 
-    private int counter = 250; // PC - Contador para saber se o braço fora limpo
+    private int counter; // PC - Contador para saber se o braço fora limpo
 
     private ImageView cotton;
 
@@ -24,7 +24,7 @@ public class CottonActivity extends AppCompatActivity {
         RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.cotton_activity);
 
         this.cotton  = (ImageView) findViewById(R.id.algodao);
-
+        this.counter = 250;
 
         assert myLayout != null;
         myLayout.setOnTouchListener(new RelativeLayout.OnTouchListener() {
@@ -92,24 +92,29 @@ public class CottonActivity extends AppCompatActivity {
             System.out.println("Cotton X: " + cotton.getX() + ", finger X: " + x);
             System.out.println("Cotton Y: " + cotton.getY() + ", finger Y: " + y);
 
-            // PC - Precisamos checar se a pessoa está apertando em um lugar relativamente proximo
-            //      a onde esta o algodão (ou estava), se estiver, podemos movê-lo, caso contrário,
-            //      nada acontece.
+
             if(this.counter > 0) {
-                if ((x - this.cotton.getX() <= 100 && x - this.cotton.getX() >= -100) && (y - this.cotton.getY() <= 100 && y -this.cotton.getY() >= -100)) {
+                // PC - Precisamos checar se a pessoa está apertando em um lugar relativamente proximo
+                //      a onde esta o algodão (ou estava), se estiver, podemos movê-lo, caso contrário,
+                //      nada acontece.
+                if((x - this.cotton.getX() <= 100 && x - this.cotton.getX() >= -100) && (y - this.cotton.getY() <= 100 && y -this.cotton.getY() >= -100)) {
                     // PC - Movendo o algodão
                     this.cotton.setX(x);
                     this.cotton.setY(y);
                     this.counter--;
-                    System.out.println("Counter: " + this.counter);
+
+                    // PC - Se a pessoa está movendo o algodão, checamos se ela está de fato sobre uma
+                    //      área a ser limpada
+                    if((x >= 250 && x <= 520) && (y >= 550 && y <= 930)) {
+                        // PC - Se ela estiver, reduzimos o contador de "sujeiras" em um
+                        System.out.println("Counter: " + this.counter);
+                    }
                 }
             } else {
-                //Toast.makeText(getApplicationContext(), "Limpou", Toast.LENGTH_SHORT).show();
+                // PC - Se o contador chegou a zero, significa que o braço está limpo e devemos, portanto
+                //      devemos mudar de activity
                 startActivity(new Intent(CottonActivity.this, CateterActivity.class));
             }
         }
     }
-
-
-
 }
