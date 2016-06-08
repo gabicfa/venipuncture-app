@@ -15,7 +15,7 @@ public class CateterActivity extends AppCompatActivity {
 
 
     private ImageView cateter;
-    //private ImageView circulo;
+    private ImageView circulo;
 
     private int originalCateterX;
     private int originalCateterY;
@@ -33,7 +33,11 @@ public class CateterActivity extends AppCompatActivity {
 
 
         this.cateter = (ImageView) findViewById(R.id.cateter);
-        //this.circulo = (ImageView) findViewById(R.id.circulo);
+        this.circulo = (ImageView) findViewById(R.id.circulo);
+
+        assert this.circulo != null;
+        this.circulo.setX(50);
+        this.circulo.setY(200);
 
         this.originalCateterX    = (int) this.cateter.getX();
         this.originalCateterY    = (int) this.cateter.getY();

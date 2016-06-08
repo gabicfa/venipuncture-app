@@ -11,28 +11,18 @@
     android:background="@drawable/thumbnail_arm2"
     tools:context=".CateterActivity">
 
-<!--<RelativeLayout-->
-
-    <!--android:layout_width="300dp"-->
-    <!--android:layout_height="400dp"-->
-    <!--android:gravity="center"-->
-    <!--android:orientation="horizontal">-->
-
-
-    <!--<ImageView-->
-        <!--android:layout_width="10dp"-->
-        <!--android:layout_height="10dp"-->
-        <!--android:id="@+id/circulo"-->
-        <!--android:src="@drawable/red_circle"/>-->
-
-<!--</RelativeLayout>-->
-
-
-<LinearLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:gravity="bottom"
         android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:id="@+id/circulo"
+            android:src="@drawable/red_circle"/>
+
 
         <ImageView
             android:layout_width="70dp"
@@ -63,9 +53,6 @@
             android:layout_height="70dp"
             android:id="@+id/adesivo"
             android:src="@drawable/adesivo"/>
-
-
-
 
     </LinearLayout>
 
