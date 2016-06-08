@@ -11,15 +11,15 @@ import android.widget.RelativeLayout;
 
 public class CateterActivity extends AppCompatActivity {
 
-    private int level   = 2;   // PC - "contador" que define a etapa do tratamento que estamos
+    private int level = 2;   // GA - "contador" que define a etapa do tratamento que estamos
 
 
     private ImageView cateter;
-    //private ImageView circulo;
 
     private int originalCateterX;
     private int originalCateterY;
-
+    private int circleX = 470;
+    private int circleY = 650;
     private int cateterWidth;
     private int cateterHeight;
 
@@ -33,10 +33,9 @@ public class CateterActivity extends AppCompatActivity {
 
 
         this.cateter = (ImageView) findViewById(R.id.cateter);
-        //this.circulo = (ImageView) findViewById(R.id.circulo);
 
-        this.originalCateterX    = (int) this.cateter.getX();
-        this.originalCateterY    = (int) this.cateter.getY();
+        this.originalCateterX = (int) this.cateter.getX();
+        this.originalCateterY = (int) this.cateter.getY();
         System.out.println("Original cateter X: " + originalCateterX);
 
         assert myLayout != null;
@@ -48,20 +47,6 @@ public class CateterActivity extends AppCompatActivity {
         });
     }
 
-    public int getOriginalX(ImageView image) {
-        if (image == cateter)
-            return this.originalCateterX;
-        else
-            return -1;
-    }
-
-    public int getOriginalY(ImageView image) {
-
-        if(image == cateter)
-            return this.originalCateterY;
-        else
-            return -1;
-    }
 
     void handleTouch(MotionEvent m) {
         int pointerCount = m.getPointerCount();
@@ -71,25 +56,30 @@ public class CateterActivity extends AppCompatActivity {
             this.cateterWidth = cateter.getWidth();
             this.cateterHeight = cateter.getHeight();
 
-            int x = (int) m.getX(i);
-            int y = (int) m.getY(i);
-            x -= this.cateterWidth / 2;
-            y -= this.cateterHeight / 2;
+            int dx = (int) m.getX(i);
+            int dy = (int) m.getY(i);
+            int x = dx - this.cateterWidth / 2;
+            int y = dy - this.cateterHeight / 2;
+//            private int circleX = 470;
+//            private int circleY = 650;
+//            dedoX= 427;
+//            dedoY= 748
 
+            System.out.println("Cateter X: " + cateter.getX() + ", finger X: " + dx);
+            System.out.println("Cateter Y: " + cateter.getY() + ", finger Y: " + dy);
 
-            System.out.println("Cateter X: " + cateter.getX() + ", finger X: " + x);
-            System.out.println("Cateter Y: " + cateter.getY() + ", finger Y: " + y);
+            if ((dy - this.cateter.getY()/2 >= circleY + 100) && (dx + this.cateter.getX()/2 >= circleX + 100 || dx - this.cateter.getX()/2 <= circleX - 100)) {
+                if ((x - this.cateter.getX() <= 100 && x - this.cateter.getX() >= -100) && (y - this.cateter.getY() <= 100 && y - this.cateter.getY() >= -100)) {
+                    // GA - Movendo o cateter
+                    this.cateter.setX(x);
+                    this.cateter.setY(y);
+            } else {
 
+                    System.out.println("colocou cateter");
 
-            if ((x - this.cateter.getX() <= 100 && x - this.cateter.getX() >= -100) && (y - this.cateter.getY() <= 100 && y - this.cateter.getY() >= -100)) {
-                // PC - Movendo o cateter
-                this.cateter.setX(x);
-                this.cateter.setY(y);
-
-
+                }
             }
+
         }
     }
-
-
 }

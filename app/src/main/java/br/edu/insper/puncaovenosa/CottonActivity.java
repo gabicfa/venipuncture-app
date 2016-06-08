@@ -62,27 +62,27 @@ public class CottonActivity extends AppCompatActivity {
         });
     }
 
-//    public int getOriginalX(ImageView image) {
-//        if(image == cotton)
-//            return this.originalCottonX;
+    public int getOriginalX(ImageView image) {
+        if(image == cotton)
+            return this.originalCottonX;
 //        else if(image == shot)
 //            return this.originalShotX;
 //        else if(image == garrote)
 //            return this.originalGarroteX;
-//        else
-//            return -1;
-//    }
-//
-//    public int getOriginalY(ImageView image) {
-//        if(image == cotton)
-//            return this.originalCottonY;
+        else
+            return -1;
+    }
+
+    public int getOriginalY(ImageView image) {
+        if(image == cotton)
+            return this.originalCottonY;
 //        else if(image == shot)
 //            return this.originalShotY;
 //        else if(image == garrote)
 //            return this.originalGarroteY;
-//        else
-//            return -1;
-//    }
+        else
+            return -1;
+    }
 
     void handleTouch(MotionEvent m)
     {
@@ -158,16 +158,12 @@ public class CottonActivity extends AppCompatActivity {
                 //Toast.makeText(getApplicationContext(), "Limpou", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(CottonActivity.this, CateterActivity.class));
 
-//                int originalX = getOriginalX(cotton);
-//                System.out.println(originalX);
-//                int originalY = getOriginalY(cotton);
-//                System.out.print(originalY);
-//
-//                if((originalX > 0) && (originalY > 0)) {
-//                    System.out.println("uhul");
-//                    this.cotton.setX(originalX);
-//                    this.cotton.setY(originalY);
-//                }
+                int originalX = getOriginalX(cotton);
+                System.out.println(originalX);
+                int originalY = getOriginalY(cotton);
+                System.out.print(originalY);
+
+
             }
         }
     }

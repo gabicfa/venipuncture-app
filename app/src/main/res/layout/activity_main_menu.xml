@@ -14,14 +14,15 @@
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="bottom"
         android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/play_btn"
-            android:layout_width="fill_parent"
-            android:layout_height="850dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:background="@null"
             android:src="@drawable/botaojogar"/>
