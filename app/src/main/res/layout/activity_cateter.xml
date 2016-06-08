@@ -11,6 +11,7 @@
     android:background="@drawable/thumbnail_arm2"
     tools:context=".CateterActivity">
 
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
