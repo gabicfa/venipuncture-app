@@ -12,10 +12,9 @@ import android.widget.RelativeLayout;
 public class SeringaActivity extends AppCompatActivity {
 
     private ImageView seringa;
-    private ImageView garrote;
     private ImageView cateter;
-    private int cateterX = 270;
-    private int cateterY = 490;
+    private int cateterX = 590;
+    private int cateterY = 1035;
 
     private RelativeLayout myLayout;
 
@@ -59,9 +58,9 @@ public class SeringaActivity extends AppCompatActivity {
             System.out.println("Cateter X: " + cateter.getX() + ", finger X: " + x);
             System.out.println("Cateter Y: " + cateter.getY() + ", finger Y: " + y);
 
-            if((dy-seringaHeight/2<=cateterY+250) && ((dx+seringaWidth/2<=cateterX+100 && dx+seringaWidth/2<=cateterX+100)))
+            if((dy-seringaHeight/2<=cateterY+100) && ((dx+seringaWidth/2<=cateterX+250 && dx+seringaWidth/2>=cateterX-250)))
             {
-                startActivity(new Intent(SeringaActivity.this, AdesivoActivity.class));
+                startActivity(new Intent(SeringaActivity.this, MedicamentoActivity.class));
 
             }
             else{

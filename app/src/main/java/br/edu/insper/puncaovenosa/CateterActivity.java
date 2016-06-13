@@ -13,8 +13,8 @@ public class CateterActivity extends AppCompatActivity {
 
     private ImageView cateter;
     private ImageView garrote;
-    private int circleX = 270;
-    private int circleY = 361;
+    private int circleX = 560;
+    private int circleY = 765;
 
     private RelativeLayout myLayout;
 
@@ -56,9 +56,9 @@ public class CateterActivity extends AppCompatActivity {
             System.out.println("Cateter X: " + cateter.getX() + ", finger X: " + x);
             System.out.println("Cateter Y: " + cateter.getY() + ", finger Y: " + y);
 
-            if((dy-cateterHeight/2<=circleY+50) && ((dx+cateterWidth/2<=circleX+50 && dx+cateterWidth/2<=circleX+50)))
+            if((dy-cateterHeight/2<=circleY+100) && ((dx<=circleX+100 && dx>=circleX-100)))
             {
-                startActivity(new Intent(CateterActivity.this, SeringaActivity.class));
+                startActivity(new Intent(CateterActivity.this, TirarGarroteActivity.class));
 
             }
             else{

@@ -12,8 +12,8 @@ import android.widget.RelativeLayout;
 public class GarroteActivity extends AppCompatActivity {
 
     private ImageView garrote;
-    private int lineX = 220;
-    private int lineY = 270;
+    private int lineX = 400;
+    private int lineY = 675;
 
     private RelativeLayout myLayout;
 
@@ -25,7 +25,6 @@ public class GarroteActivity extends AppCompatActivity {
         myLayout = (RelativeLayout) findViewById(R.id.garrote_activity);
 
         this.garrote = (ImageView) findViewById(R.id.garrote);
-        //garrote.setVisibility(View.INVISIBLE);
 
 
         assert myLayout != null;
@@ -51,17 +50,16 @@ public class GarroteActivity extends AppCompatActivity {
             int y = dy - garroteHeight / 2;
 
 
-            System.out.println("Cateter X: " + garrote.getX() + ", finger X: " + x);
-            System.out.println("Cateter Y: " + garrote.getY() + ", finger Y: " + y);
+            System.out.println("Garrote X: " + garrote.getX() + ", finger X: " + x);
+            System.out.println("Garrote Y: " + garrote.getY() + ", finger Y: " + y);
 
-            if((dy-garroteHeight/2<=lineY+70) && ((dx+garroteWidth/2<=lineX+80 && dx+garroteWidth/2<=lineX+80)))
+            if((dy<=lineY+100) && ((dx<=lineX+100 && dx>=lineX-100)))
             {
                 startActivity(new Intent(GarroteActivity.this, CottonActivity.class));
 
             }
             else{
                 if ((x - this.garrote.getX() <= 100 && x - this.garrote.getX() >= -100) && (y - this.garrote.getY() <= 100 && y - this.garrote.getY() >= -100)) {
-                    // ®PC - Movendo o cateter
                     this.garrote.setX(x);
                     this.garrote.setY(y);
                 }

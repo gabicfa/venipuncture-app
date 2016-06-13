@@ -32,6 +32,15 @@
         <activity
             android:name=".GarroteActivity"
             android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".TirarGarroteActivity"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".MedicamentoActivity"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".TirarSeringaActivity"
+            android:theme="@style/NoActionBar" />
     </application>
 
 </manifest>
