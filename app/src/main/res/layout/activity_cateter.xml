@@ -12,42 +12,61 @@
     tools:context=".CateterActivity">
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
+        android:layout_centerInParent="true"
         android:gravity="bottom"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="1">
 
         <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="77dp"
+            android:layout_height="85dp"
             android:id="@+id/garrote"
-            android:src="@drawable/garrote" />
+            android:src="@drawable/garrote"
+            android:layout_gravity="bottom"
+            android:layout_alignBottom="@+id/algodao"
+            android:layout_alignTop="@+id/algodao"
+            android:layout_toLeftOf="@+id/algodao"
+            android:layout_toStartOf="@+id/algodao" />
 
         <ImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:id="@+id/algodao"
-            android:src="@drawable/algodao"/>
+            android:src="@drawable/algodao"
+            android:layout_toLeftOf="@+id/cateter"
+            android:layout_gravity="bottom"
+            android:layout_alignBottom="@+id/adesivo" />
 
         <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:id="@+id/cateter"
-            android:src="@drawable/cateter"/>
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:id="@id/cateter"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/cateter"
+            android:layout_gravity="bottom"
+            android:layout_weight="0.17" />
 
         <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="60dp"
+            android:layout_height="116dp"
             android:id="@+id/seringa"
-            android:src="@drawable/seringa"/>
+            android:layout_toRightOf="@+id/cateter"
+            android:src="@drawable/seringa"
+            android:layout_weight="0.22" />
 
         <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="66dp"
+            android:layout_height="wrap_content"
             android:id="@+id/adesivo"
-            android:src="@drawable/adesivo"/>
+            android:src="@drawable/adesivo"
+            android:layout_gravity="bottom"
+            android:layout_alignBottom="@id/cateter"
+            android:layout_toRightOf="@+id/seringa"
+            android:layout_toEndOf="@+id/seringa" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>
