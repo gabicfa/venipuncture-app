@@ -15,12 +15,14 @@ public class CateterActivity extends AppCompatActivity {
     private int circleX = 360;
     private int circleY = 600;
 
+    private RelativeLayout myLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cateter);
 
-        RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.cateter_activity);
+        myLayout = (RelativeLayout) findViewById(R.id.cateter_activity);
 
         this.cateter = (ImageView) findViewById(R.id.cateter);
 
@@ -54,6 +56,7 @@ public class CateterActivity extends AppCompatActivity {
             if((dy-cateterHeight/2<=circleY+100) && ((dx+cateterWidth/2<=circleX+150 && dx+cateterWidth/2<=circleX+150)))
             {
                 System.out.println("colocou cateter");
+                //myLayout.setBackground(R.drawable.braco_gabi);
                 try {
                     Thread.sleep(1000);
                 } catch(InterruptedException ex) {
