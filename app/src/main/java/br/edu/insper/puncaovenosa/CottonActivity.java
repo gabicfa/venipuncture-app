@@ -14,6 +14,7 @@ public class CottonActivity extends AppCompatActivity {
     private int counter; // PC - Contador para saber se o braço fora limpo
 
     private ImageView cotton;
+    private ImageView garrote;
 
 
     @Override
@@ -24,7 +25,10 @@ public class CottonActivity extends AppCompatActivity {
         RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.cotton_activity);
 
         this.cotton  = (ImageView) findViewById(R.id.algodao);
-        this.counter = 250;
+        this.garrote = (ImageView) findViewById(R.id.garrote);
+        this.counter = 100;
+
+        garrote.setVisibility(View.INVISIBLE);
 
         assert myLayout != null;
         myLayout.setOnTouchListener(new RelativeLayout.OnTouchListener() {

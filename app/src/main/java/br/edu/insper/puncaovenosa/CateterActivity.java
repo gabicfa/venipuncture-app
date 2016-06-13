@@ -12,8 +12,9 @@ import android.widget.RelativeLayout;
 public class CateterActivity extends AppCompatActivity {
 
     private ImageView cateter;
-    private int circleX = 360;
-    private int circleY = 600;
+    private ImageView garrote;
+    private int circleX = 270;
+    private int circleY = 361;
 
     private RelativeLayout myLayout;
 
@@ -25,6 +26,8 @@ public class CateterActivity extends AppCompatActivity {
         myLayout = (RelativeLayout) findViewById(R.id.cateter_activity);
 
         this.cateter = (ImageView) findViewById(R.id.cateter);
+        this.garrote = (ImageView) findViewById(R.id.garrote);
+        garrote.setVisibility(View.INVISIBLE);
 
 
         assert myLayout != null;
@@ -53,15 +56,9 @@ public class CateterActivity extends AppCompatActivity {
             System.out.println("Cateter X: " + cateter.getX() + ", finger X: " + x);
             System.out.println("Cateter Y: " + cateter.getY() + ", finger Y: " + y);
 
-            if((dy-cateterHeight/2<=circleY+100) && ((dx+cateterWidth/2<=circleX+150 && dx+cateterWidth/2<=circleX+150)))
+            if((dy-cateterHeight/2<=circleY+50) && ((dx+cateterWidth/2<=circleX+50 && dx+cateterWidth/2<=circleX+50)))
             {
-                System.out.println("colocou cateter");
-                //myLayout.setBackground(R.drawable.braco_gabi);
-                try {
-                    Thread.sleep(1000);
-                } catch(InterruptedException ex) {
-                    Thread.currentThread().interrupt();
-                }
+                startActivity(new Intent(CateterActivity.this, SeringaActivity.class));
 
             }
             else{
