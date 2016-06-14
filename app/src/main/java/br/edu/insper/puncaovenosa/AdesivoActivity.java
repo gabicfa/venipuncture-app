@@ -13,8 +13,8 @@ public class AdesivoActivity extends AppCompatActivity {
 
     private ImageView cateter;
     private ImageView adesivo;
-    private int cateterX = 460;
-    private int cateterY = 900;
+    private int cateterX = 440;
+    private int cateterY = 860;
 
     private RelativeLayout myLayout;
 
@@ -55,22 +55,17 @@ public class AdesivoActivity extends AppCompatActivity {
 
             System.out.println("Cateter X: " + cateter.getX() + ", finger X: " + dx);
             System.out.println("Cateter Y: " + cateter.getY() + ", finger Y: " + dy);
-
-            if((dy-adesivoWidth/2<=cateterY+250) && ((dx+adesivoHeight/2<=cateterX+250 && dx-adesivoHeight/2>=cateterX-250)))
-            {
-                System.out.println("Colocou adesivo");
-                this.adesivo.setX(cateterX);
-                this.adesivo.setY(cateterY);
-            }
-            else{
-                if ((x - this.adesivo.getX() <= 100 && x - this.adesivo.getX() >= -100) && (y - this.adesivo.getY() <= 100 && y - this.adesivo.getY() >= -100)) {
-                    // ®PC - Movendo o cateter
-                    this.adesivo.setX(x);
-                    this.adesivo.setY(y);
+            if ((x - this.adesivo.getX() <= 100 && x - this.adesivo.getX() >= -100) && (y - this.adesivo.getY() <= 100 && y - this.adesivo.getY() >= -100)) {
+                // ®PC - Movendo o cateter
+                this.adesivo.setX(x);
+                this.adesivo.setY(y);
+                if((dy-adesivoWidth/2<=cateterY+250) && ((dx+adesivoHeight/2<=cateterX+250 && dx-adesivoHeight/2>=cateterX-250)))
+                {
+                    System.out.println("Colocou adesivo");
+                    this.adesivo.setX(cateterX);
+                    this.adesivo.setY(cateterY);
                 }
             }
         }
     }
-
-
 }

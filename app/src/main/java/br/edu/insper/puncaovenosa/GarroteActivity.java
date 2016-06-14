@@ -53,19 +53,15 @@ public class GarroteActivity extends AppCompatActivity {
             System.out.println("Garrote X: " + garrote.getX() + ", finger X: " + x);
             System.out.println("Garrote Y: " + garrote.getY() + ", finger Y: " + y);
 
-            if((dy<=lineY+100) && ((dx<=lineX+100 && dx>=lineX-100)))
-            {
-                startActivity(new Intent(GarroteActivity.this, CottonActivity.class));
+            if ((x - this.garrote.getX() <= 200 && x - this.garrote.getX() >= -200) && (y - this.garrote.getY() <= 200 && y - this.garrote.getY() >= -200)) {
+                this.garrote.setX(x);
+                this.garrote.setY(y);
+                if((dy<=lineY+100) && ((dx<=lineX+200 && dx>=lineX-100)))
+                {
+                    startActivity(new Intent(GarroteActivity.this, CottonActivity.class));
 
-            }
-            else{
-                if ((x - this.garrote.getX() <= 100 && x - this.garrote.getX() >= -100) && (y - this.garrote.getY() <= 100 && y - this.garrote.getY() >= -100)) {
-                    this.garrote.setX(x);
-                    this.garrote.setY(y);
                 }
             }
         }
     }
-
-
 }
