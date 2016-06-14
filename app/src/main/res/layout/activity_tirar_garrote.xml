@@ -35,7 +35,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:id="@+id/algodao"
-            android:src="@drawable/algodao"
+            android:src="@drawable/algodao2"
             android:layout_toLeftOf="@+id/cateter"
             android:layout_gravity="bottom"
             android:layout_alignBottom="@+id/adesivo" />
@@ -54,14 +54,14 @@
             android:layout_height="116dp"
             android:id="@+id/seringa"
             android:layout_toRightOf="@+id/cateter"
-            android:src="@drawable/seringa"
+            android:src="@drawable/seringa2"
             android:layout_weight="0.22" />
 
         <ImageView
             android:layout_width="66dp"
             android:layout_height="wrap_content"
             android:id="@+id/adesivo"
-            android:src="@drawable/adesivo"
+            android:src="@drawable/adesivo2"
             android:layout_gravity="bottom"
             android:layout_alignBottom="@id/cateter"
             android:layout_toRightOf="@+id/seringa"

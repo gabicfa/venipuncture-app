@@ -68,7 +68,8 @@ public class TirarGarroteActivity extends AppCompatActivity {
                 garrote.setVisibility(View.VISIBLE);
                 myLayout.setBackgroundResource(R.drawable.arm_bandeja_sinal);
                 if ((x - this.garrote.getX() <= 100 && x - this.garrote.getX() >= -100) && (y - this.garrote.getY() <= 100 && y - this.garrote.getY() >= -100)) {
-                    if(dy>=1940){
+//                    if(dy>=1940){
+                    if(dy>1290){
                         startActivity(new Intent(TirarGarroteActivity.this, SeringaActivity.class));
                     }
                     else{

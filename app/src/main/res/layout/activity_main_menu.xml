@@ -9,10 +9,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="br.edu.insper.puncaovenosa.MainMenuActivity">
 
-
-
-
-
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

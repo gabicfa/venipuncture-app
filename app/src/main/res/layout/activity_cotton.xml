@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/arm_garrote"
+    android:background="@drawable/arm_germes"
     tools:context=".CottonActivity">
 
 
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:id="@id/cateter"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/cateter"
+            android:src="@drawable/cateter2"
             android:layout_gravity="bottom"
             android:layout_weight="0.17" />
 
@@ -54,14 +54,14 @@
             android:layout_height="116dp"
             android:id="@+id/seringa"
             android:layout_toRightOf="@+id/cateter"
-            android:src="@drawable/seringa"
+            android:src="@drawable/seringa2"
             android:layout_weight="0.22" />
 
         <ImageView
             android:layout_width="66dp"
             android:layout_height="wrap_content"
             android:id="@+id/adesivo"
-            android:src="@drawable/adesivo"
+            android:src="@drawable/adesivo2"
             android:layout_gravity="bottom"
             android:layout_alignBottom="@id/cateter"
             android:layout_toRightOf="@+id/seringa"

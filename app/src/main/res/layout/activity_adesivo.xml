@@ -24,7 +24,7 @@
             android:layout_width="77dp"
             android:layout_height="85dp"
             android:id="@+id/garrote"
-            android:src="@drawable/garrote"
+            android:src="@drawable/garrote2"
             android:layout_gravity="bottom"
             android:layout_alignBottom="@+id/algodao"
             android:layout_alignTop="@+id/algodao"
@@ -35,7 +35,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:id="@+id/algodao"
-            android:src="@drawable/algodao"
+            android:src="@drawable/algodao2"
             android:layout_toLeftOf="@+id/cateter"
             android:layout_gravity="bottom"
             android:layout_alignBottom="@+id/adesivo" />
@@ -54,7 +54,7 @@
             android:layout_height="116dp"
             android:id="@+id/seringa"
             android:layout_toRightOf="@+id/cateter"
-            android:src="@drawable/seringa"
+            android:src="@drawable/seringa2"
             android:layout_weight="0.22" />
 
         <ImageView
