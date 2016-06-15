@@ -35,7 +35,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:id="@+id/algodao"
-            android:src="@drawable/algodao"
+            android:src="@drawable/algodao2"
             android:layout_toLeftOf="@+id/cateter"
             android:layout_gravity="bottom"
             android:layout_alignBottom="@+id/adesivo" />

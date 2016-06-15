@@ -49,10 +49,6 @@ public class GarroteActivity extends AppCompatActivity {
             int x = dx - garroteWidth / 2;
             int y = dy - garroteHeight / 2;
 
-
-            System.out.println("Garrote X: " + garrote.getX() + ", finger X: " + x);
-            System.out.println("Garrote Y: " + garrote.getY() + ", finger Y: " + y);
-
             if ((x - this.garrote.getX() <= 200 && x - this.garrote.getX() >= -200) && (y - this.garrote.getY() <= 200 && y - this.garrote.getY() >= -200)) {
                 this.garrote.setX(x);
                 this.garrote.setY(y);

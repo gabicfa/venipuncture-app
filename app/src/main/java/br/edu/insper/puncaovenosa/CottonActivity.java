@@ -26,7 +26,7 @@ public class CottonActivity extends AppCompatActivity {
 
         this.cotton  = (ImageView) findViewById(R.id.algodao);
         this.garrote = (ImageView) findViewById(R.id.garrote);
-        this.counter = 250;
+        this.counter = 150;
 
         garrote.setVisibility(View.INVISIBLE);
 

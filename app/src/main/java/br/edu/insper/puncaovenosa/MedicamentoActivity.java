@@ -53,10 +53,9 @@ public class MedicamentoActivity extends AppCompatActivity {
             if ((dy <= lineY + 70) && ((dx <= lineX + 80 && dx <= lineX + 80))) {
                 System.out.println("seringa");
                 seringan = 1;
-                //startActivity(new Intent(Tri.this, TirarGarroteActivity.class));
             }
             if (seringan == 1) {
-                startActivity(new Intent(MedicamentoActivity.this, AdesivoActivity.class));
+                startActivity(new Intent(MedicamentoActivity.this, TirarSeringaActivity.class));
 
             }
         }

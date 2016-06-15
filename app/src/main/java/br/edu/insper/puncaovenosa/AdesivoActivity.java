@@ -52,18 +52,15 @@ public class AdesivoActivity extends AppCompatActivity {
             int x = dx - adesivoWidth / 2;
             int y = dy - adesivoWidth / 2;
 
-
-            System.out.println("Cateter X: " + cateter.getX() + ", finger X: " + dx);
-            System.out.println("Cateter Y: " + cateter.getY() + ", finger Y: " + dy);
             if ((x - this.adesivo.getX() <= 100 && x - this.adesivo.getX() >= -100) && (y - this.adesivo.getY() <= 100 && y - this.adesivo.getY() >= -100)) {
-                // ®PC - Movendo o cateter
                 this.adesivo.setX(x);
                 this.adesivo.setY(y);
                 if((dy-adesivoWidth/2<=cateterY+250) && ((dx+adesivoHeight/2<=cateterX+250 && dx-adesivoHeight/2>=cateterX-250)))
                 {
                     System.out.println("Colocou adesivo");
-                    this.adesivo.setX(cateterX);
-                    this.adesivo.setY(cateterY);
+                    myLayout.setBackgroundResource(R.drawable.arm_adesivo);
+                    adesivo.setVisibility(View.INVISIBLE);
+
                 }
             }
         }

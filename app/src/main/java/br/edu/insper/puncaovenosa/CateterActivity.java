@@ -53,11 +53,8 @@ public class CateterActivity extends AppCompatActivity {
             int y = dy - cateterHeight / 2;
 
 
-            System.out.println("Cateter X: " + cateter.getX() + ", finger X: " + x);
-            System.out.println("Cateter Y: " + cateter.getY() + ", finger Y: " + y);
 
             if ((x - this.cateter.getX() <= 100 && x - this.cateter.getX() >= -100) && (y - this.cateter.getY() <= 100 && y - this.cateter.getY() >= -100)) {
-                // ®PC - Movendo o cateter
                 this.cateter.setX(x);
                 this.cateter.setY(y);
                 if((dy-cateterHeight/2<=circleY+200) && ((dx<=circleX+100 && dx>=circleX-100)))

@@ -21,7 +21,8 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:background="@null"
-            android:src="@drawable/botaojogar"/>
+            android:src="@drawable/botaojogar"
+            android:layout_gravity="center_vertical" />
 
     </LinearLayout>
 

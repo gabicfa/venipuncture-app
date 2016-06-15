@@ -26,9 +26,7 @@ public class SeringaActivity extends AppCompatActivity {
         myLayout = (RelativeLayout) findViewById(R.id.seringa_activity);
 
         this.seringa = (ImageView) findViewById(R.id.seringa);
-        //this.garrote = (ImageView) findViewById(R.id.garrote);
         this.cateter = (ImageView) findViewById(R.id.cateter);
-        //garrote.setVisibility(View.INVISIBLE);
         cateter.setVisibility(View.INVISIBLE);
 
 
@@ -59,7 +57,6 @@ public class SeringaActivity extends AppCompatActivity {
             System.out.println("Cateter Y: " + cateter.getY() + ", finger Y: " + y);
 
             if ((x - this.seringa.getX() <= 100 && x - this.seringa.getX() >= -100) && (y - this.seringa.getY() <= 100 && y - this.seringa.getY() >= -100)) {
-                // ®PC - Movendo o cateter
                 this.seringa.setX(x);
                 this.seringa.setY(y);
                 if((dy-seringaHeight/2<=cateterY+200) && ((dx+seringaWidth/2<=cateterX+300 && dx+seringaWidth/2>=cateterX-300))) {
