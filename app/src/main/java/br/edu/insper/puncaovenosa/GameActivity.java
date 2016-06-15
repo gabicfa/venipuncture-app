@@ -3,6 +3,7 @@ package br.edu.insper.puncaovenosa;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -42,5 +43,13 @@ public class GameActivity extends AppCompatActivity {
         } else if(index == 4) {
             myLayout.setBackgroundResource(R.drawable.room8);
         }
+
+        myLayout.setOnTouchListener(new RelativeLayout.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent m) {
+                startActivity(new Intent(GameActivity.this, GarroteActivity.class));
+                return true;
+            }
+        });
+
     }
 }
