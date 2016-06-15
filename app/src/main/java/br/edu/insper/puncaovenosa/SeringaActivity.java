@@ -12,6 +12,7 @@ public class SeringaActivity extends AppCompatActivity {
 
     private ImageView seringa;
     private ImageView cateter;
+    private ImageView adesivo;
     private int cateterX = 590;
     private int cateterY = 1035;
 
@@ -26,8 +27,9 @@ public class SeringaActivity extends AppCompatActivity {
 
         this.seringa = (ImageView) findViewById(R.id.seringa);
         this.cateter = (ImageView) findViewById(R.id.cateter);
+        this.adesivo = (ImageView) findViewById(R.id.adesivo);
         cateter.setVisibility(View.INVISIBLE);
-
+        adesivo.setVisibility(View.INVISIBLE);
 
         assert myLayout != null;
         myLayout.setOnTouchListener(new RelativeLayout.OnTouchListener() {

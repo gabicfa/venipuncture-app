@@ -53,7 +53,7 @@
             android:layout_width="60dp"
             android:layout_height="116dp"
             android:id="@+id/seringa"
-            android:layout_toRightOf="@+id/cateter"
+            android:layout_toRightOf="@+id/adesivo"
             android:src="@drawable/seringa2"
             android:layout_weight="0.22" />
 
@@ -64,8 +64,8 @@
             android:src="@drawable/adesivo"
             android:layout_gravity="bottom"
             android:layout_alignBottom="@id/cateter"
-            android:layout_toRightOf="@+id/seringa"
-            android:layout_toEndOf="@+id/seringa" />
+            android:layout_toRightOf="@+id/cateter"
+            android:layout_toEndOf="@+id/cateter" />
 
     </RelativeLayout>
 

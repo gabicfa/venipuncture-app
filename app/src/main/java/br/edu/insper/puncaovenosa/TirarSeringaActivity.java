@@ -12,10 +12,11 @@ public class TirarSeringaActivity extends AppCompatActivity {
 
     private ImageView cateter;
     private ImageView seringa;
+    private ImageView adesivo;
     private int seringaX = 595;
     private int seringaY = 1445;
     private int seringan;
-
+    private int seringan2=1;
     private RelativeLayout myLayout;
 
     @Override
@@ -27,8 +28,10 @@ public class TirarSeringaActivity extends AppCompatActivity {
 
         this.cateter = (ImageView) findViewById(R.id.cateter);
         this.seringa = (ImageView) findViewById(R.id.seringa);
+        this.adesivo = (ImageView) findViewById(R.id.adesivo);
         seringa.setVisibility(View.INVISIBLE);
         cateter.setVisibility(View.INVISIBLE);
+        adesivo.setVisibility(View.INVISIBLE);
 
 
         assert myLayout != null;
@@ -63,20 +66,28 @@ public class TirarSeringaActivity extends AppCompatActivity {
                 this.seringa.setY(y);
                 seringan = 1;
             }
-            if (seringan == 1) {
+            if (seringan == 1 && seringan2==1) {
                 seringa.setVisibility(View.VISIBLE);
-                myLayout.setBackgroundResource(R.drawable.arm_bandeja_sinal);
+//                myLayout.setBackgroundResource(R.drawable.arm_bandeja_sinal);
                 if ((x - this.seringa.getX() <= 100 && x - this.seringa.getX() >= -100) && (y - this.seringa.getY() <= 100 && y - this.seringa.getY() >= -100)) {
 //                    if(dy>=1940){ --> PARA O CEL DO CUNI
                     if(dy>=1360){//--> PARA O TABLET
-                        myLayout.setBackgroundResource(R.drawable.arm_cateter);
+                        myLayout.setBackgroundResource(R.drawable.arm_adesivo);
+                        seringan2 = 2;
                     }
                     else{
+                        myLayout.setBackgroundResource(R.drawable.arm_adesivo);
                         this.seringa.setX(x);
                         this.seringa.setY(y);
                     }
 
                 }
+            }
+
+            if(seringan2 ==2 && seringan ==1){
+                this.seringa.setX(575);
+                this.seringa.setY(1465);
+                //dar um clock e ir para tela final
             }
         }
     }

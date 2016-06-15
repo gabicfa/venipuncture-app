@@ -57,7 +57,7 @@ public class CateterActivity extends AppCompatActivity {
             if ((x - this.cateter.getX() <= 100 && x - this.cateter.getX() >= -100) && (y - this.cateter.getY() <= 100 && y - this.cateter.getY() >= -100)) {
                 this.cateter.setX(x);
                 this.cateter.setY(y);
-                if((dy-cateterHeight/2<=circleY+200) && ((dx<=circleX+100 && dx>=circleX-100)))
+                if((dy-cateterHeight/2<=circleY+100) && ((dx<=circleX+100 && dx>=circleX-100)))
                 {
                     startActivity(new Intent(CateterActivity.this, TirarGarroteActivity.class));
 

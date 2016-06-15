@@ -18,7 +18,7 @@ public class GameActivity extends AppCompatActivity {
         RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.game_activity);
         assert myLayout != null;
 
-        int index = getIntent().getIntExtra("i", -1);
+        final int index = getIntent().getIntExtra("i", -1);
 
         if(index == -1) {
             System.out.println("Boop");
@@ -46,7 +46,7 @@ public class GameActivity extends AppCompatActivity {
 
         myLayout.setOnTouchListener(new RelativeLayout.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent m) {
-                startActivity(new Intent(GameActivity.this, GarroteActivity.class));
+                startActivity(new Intent(GameActivity.this, GarroteActivity.class).putExtra("i", index));
                 return true;
             }
         });
