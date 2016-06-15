@@ -17,7 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".CharacterSelectionActivity" />
-        <activity android:name=".GameActivity" />
+        <activity
+            android:name=".GameActivity"
+            android:theme="@style/NoActionBar"/>
         <activity
             android:name=".CottonActivity"
             android:theme="@style/NoActionBar" />
