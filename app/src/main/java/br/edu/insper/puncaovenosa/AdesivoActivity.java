@@ -60,6 +60,7 @@ public class AdesivoActivity extends AppCompatActivity {
                     System.out.println("Colocou adesivo");
                     myLayout.setBackgroundResource(R.drawable.arm_adesivo);
                     adesivo.setVisibility(View.INVISIBLE);
+                    startActivity(new Intent(AdesivoActivity.this, SeringaActivity.class));
 
                 }
             }

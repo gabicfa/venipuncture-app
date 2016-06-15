@@ -69,7 +69,7 @@ public class TirarSeringaActivity extends AppCompatActivity {
                 if ((x - this.seringa.getX() <= 100 && x - this.seringa.getX() >= -100) && (y - this.seringa.getY() <= 100 && y - this.seringa.getY() >= -100)) {
 //                    if(dy>=1940){ --> PARA O CEL DO CUNI
                     if(dy>=1360){//--> PARA O TABLET
-                        startActivity(new Intent(TirarSeringaActivity.this, AdesivoActivity.class));
+                        myLayout.setBackgroundResource(R.drawable.arm_cateter);
                     }
                     else{
                         this.seringa.setX(x);

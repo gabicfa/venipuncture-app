@@ -9,17 +9,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:largeHeap="true">
-        <activity android:name=".MainMenuActivity">
+        <activity
+            android:name=".MainMenuActivity"
+            android:theme="@style/NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CharacterSelectionActivity" />
+        <activity
+            android:name=".CharacterSelectionActivity"
+            android:theme="@style/NoActionBar" />
         <activity
             android:name=".GameActivity"
-            android:theme="@style/NoActionBar"/>
+            android:theme="@style/NoActionBar" />
         <activity
             android:name=".CottonActivity"
             android:theme="@style/NoActionBar" />
