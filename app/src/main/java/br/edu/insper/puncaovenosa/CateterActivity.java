@@ -57,12 +57,7 @@ public class CateterActivity extends AppCompatActivity {
             {
                 System.out.println("colocou cateter");
                 //myLayout.setBackground(R.drawable.braco_gabi);
-                try {
-                    Thread.sleep(1000);
-                } catch(InterruptedException ex) {
-                    Thread.currentThread().interrupt();
-                }
-
+                startActivity(new Intent(CateterActivity.this, SeringaActivity.class));
             }
             else{
                 if ((x - this.cateter.getX() <= 100 && x - this.cateter.getX() >= -100) && (y - this.cateter.getY() <= 100 && y - this.cateter.getY() >= -100)) {
