@@ -27,7 +27,7 @@ public class CottonActivity extends AppCompatActivity {
 
         this.cotton  = (ImageView) findViewById(R.id.algodao);
         this.garrote = (ImageView) findViewById(R.id.garrote);
-        this.counter = 250;
+        this.counter = 350;
 
         garrote.setVisibility(View.INVISIBLE);
 
@@ -113,11 +113,11 @@ public class CottonActivity extends AppCompatActivity {
                     if((x >= 250 && x <= 520) && (y >= 550 && y <= 930)) {
                         // PC - Se ela estiver, reduzimos o contador de "sujeiras" em um
                         System.out.println("Counter: " + this.counter);
-                        if(this.counter<165 && this.counter>80){
+                        if(this.counter<235 && this.counter>118){
                             myLayout.setBackgroundResource(R.drawable.arm_germes2);
                         }
                         else{
-                            if(this.counter<=80){
+                            if(this.counter<=118){
                                 myLayout.setBackgroundResource(R.drawable.arm_germes1);
                             }
                         }
