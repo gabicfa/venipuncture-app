@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/cotton_activity"
+    android:id="@+id/medicamento_activity"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/arm_germes"
-    tools:context=".CottonActivity">
+    android:background="@drawable/arm_seringa_cateter"
+    tools:context=".MedicamentoActivity">
 
 
     <RelativeLayout
@@ -24,7 +24,7 @@
             android:layout_width="77dp"
             android:layout_height="85dp"
             android:id="@+id/garrote"
-            android:src="@drawable/garrote"
+            android:src="@drawable/garrote2"
             android:layout_gravity="bottom"
             android:layout_alignBottom="@+id/algodao"
             android:layout_alignTop="@+id/algodao"
@@ -35,7 +35,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:id="@+id/algodao"
-            android:src="@drawable/algodao"
+            android:src="@drawable/algodao2"
             android:layout_toLeftOf="@+id/cateter"
             android:layout_gravity="bottom"
             android:layout_alignBottom="@+id/adesivo" />
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:id="@id/cateter"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/cateter2"
+            android:src="@drawable/cateter"
             android:layout_gravity="bottom"
             android:layout_weight="0.17" />
 
@@ -54,7 +54,7 @@
             android:layout_height="116dp"
             android:id="@+id/seringa"
             android:layout_toRightOf="@+id/cateter"
-            android:src="@drawable/seringa2"
+            android:src="@drawable/seringa"
             android:layout_weight="0.22" />
 
         <ImageView

@@ -9,25 +9,22 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-public class CateterActivity extends AppCompatActivity {
+public class GarroteActivity extends AppCompatActivity {
 
-    private ImageView cateter;
     private ImageView garrote;
-    private int circleX = 560;
-    private int circleY = 765;
+    private int lineX = 400;
+    private int lineY = 675;
 
     private RelativeLayout myLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cateter);
+        setContentView(R.layout.activity_garrote);
 
-        myLayout = (RelativeLayout) findViewById(R.id.cateter_activity);
+        myLayout = (RelativeLayout) findViewById(R.id.garrote_activity);
 
-        this.cateter = (ImageView) findViewById(R.id.cateter);
         this.garrote = (ImageView) findViewById(R.id.garrote);
-        garrote.setVisibility(View.INVISIBLE);
 
 
         assert myLayout != null;
@@ -44,22 +41,20 @@ public class CateterActivity extends AppCompatActivity {
 
         for (int i = 0; i < pointerCount; i++) {
 
-            int cateterWidth = cateter.getWidth();
-            int cateterHeight = cateter.getHeight();
+            int garroteWidth = garrote.getWidth();
+            int garroteHeight = garrote.getHeight();
 
             int dx = (int) m.getX(i);
             int dy = (int) m.getY(i);
-            int x = dx - cateterWidth / 2;
-            int y = dy - cateterHeight / 2;
+            int x = dx - garroteWidth / 2;
+            int y = dy - garroteHeight / 2;
 
-
-
-            if ((x - this.cateter.getX() <= 100 && x - this.cateter.getX() >= -100) && (y - this.cateter.getY() <= 100 && y - this.cateter.getY() >= -100)) {
-                this.cateter.setX(x);
-                this.cateter.setY(y);
-                if((dy-cateterHeight/2<=circleY+200) && ((dx<=circleX+100 && dx>=circleX-100)))
+            if ((x - this.garrote.getX() <= 200 && x - this.garrote.getX() >= -200) && (y - this.garrote.getY() <= 200 && y - this.garrote.getY() >= -200)) {
+                this.garrote.setX(x);
+                this.garrote.setY(y);
+                if((dy<=lineY+100) && ((dx<=lineX+200 && dx>=lineX-100)))
                 {
-                    startActivity(new Intent(CateterActivity.this, TirarGarroteActivity.class));
+                    startActivity(new Intent(GarroteActivity.this, CottonActivity.class));
 
                 }
             }
