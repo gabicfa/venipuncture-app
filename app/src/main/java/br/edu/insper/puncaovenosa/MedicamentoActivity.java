@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-public class MedicamentoActivity extends AppCompatActivity {
+public class    MedicamentoActivity extends AppCompatActivity {
 
     private ImageView cateter;
     private ImageView seringa;

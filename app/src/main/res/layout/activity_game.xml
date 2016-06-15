@@ -7,66 +7,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="br.edu.insper.puncaovenosa.GameActivity">
+    android:id="@+id/game_activity"
+    tools:context="br.edu.insper.puncaovenosa.GameActivity"
+    android:background="@drawable/room1">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/bed"
-        android:src="@drawable/hospital_bed"/>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:id="@+id/blonde_girl_body"
-        android:src="@drawable/meninaloiracorpo"/>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:id="@+id/brunette_girl1_body"
-        android:src="@drawable/meninamorena1corpo"/>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:id="@+id/brunette_girl_body"
-        android:src="@drawable/meninamorenacorpo"/>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:src="@drawable/meninamorena2corpo"
-        android:id="@+id/brunette_girl2_body"/>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:src="@drawable/meninamorenacorpo3"
-        android:id="@+id/brunette_girl3_body"/>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:src="@drawable/meninoloirocorpo"
-        android:id="@+id/blonde_boy_body"/>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:src="@drawable/meninomorenocorpo"
-        android:id="@+id/brunette_boy_body"/>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:src="@drawable/meninomoreno1corpo"
-        android:id="@+id/brunette_boy1_body"/>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:src="@drawable/meninomoreno2corpo"
-        android:id="@+id/brunette_boy2_body"/>
 
 </RelativeLayout>

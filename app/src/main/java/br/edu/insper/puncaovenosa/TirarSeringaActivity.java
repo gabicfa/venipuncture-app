@@ -13,7 +13,7 @@ public class TirarSeringaActivity extends AppCompatActivity {
     private ImageView cateter;
     private ImageView seringa;
     private int seringaX = 595;
-    private int seringaY = 970;
+    private int seringaY = 1445;
     private int seringan;
 
     private RelativeLayout myLayout;
