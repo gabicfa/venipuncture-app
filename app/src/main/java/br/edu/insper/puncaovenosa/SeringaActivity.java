@@ -15,6 +15,8 @@ public class SeringaActivity extends AppCompatActivity {
     private ImageView adesivo;
     private int cateterX = 590;
     private int cateterY = 1035;
+    private int index;
+
 
     private RelativeLayout myLayout;
 
@@ -30,7 +32,14 @@ public class SeringaActivity extends AppCompatActivity {
         this.adesivo = (ImageView) findViewById(R.id.adesivo);
         cateter.setVisibility(View.INVISIBLE);
         adesivo.setVisibility(View.INVISIBLE);
+        index = getIntent().getIntExtra("i", -1);
 
+        if(index == 2 || index == 7) {
+            myLayout.setBackgroundResource(R.drawable.arm3_cateter_sinalizado);
+        }
+        else if(index == 3 || index ==8) {
+            myLayout.setBackgroundResource(R.drawable.arm2_cateter_sinalizado);
+        }
         assert myLayout != null;
         myLayout.setOnTouchListener(new RelativeLayout.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent m) {
@@ -61,7 +70,7 @@ public class SeringaActivity extends AppCompatActivity {
                 this.seringa.setX(x);
                 this.seringa.setY(y);
                 if((dy-seringaHeight/2<=cateterY+200) && ((dx+seringaWidth/2<=cateterX+300 && dx+seringaWidth/2>=cateterX-300))) {
-                    startActivity(new Intent(SeringaActivity.this, MedicamentoActivity.class));
+                    startActivity(new Intent(SeringaActivity.this, MedicamentoActivity.class).putExtra("i", index));
                 }
             }
         }

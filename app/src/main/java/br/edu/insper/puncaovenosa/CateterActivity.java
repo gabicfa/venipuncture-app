@@ -17,6 +17,7 @@ public class CateterActivity extends AppCompatActivity {
     private int circleY = 765;
 
     private RelativeLayout myLayout;
+    private int index;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,14 @@ public class CateterActivity extends AppCompatActivity {
         this.cateter = (ImageView) findViewById(R.id.cateter);
         this.garrote = (ImageView) findViewById(R.id.garrote);
         garrote.setVisibility(View.INVISIBLE);
+        index = getIntent().getIntExtra("i", -1);
 
+        if(index == 2 || index == 7) {
+            myLayout.setBackgroundResource(R.drawable.arm3_dot);
+        }
+        else if(index == 3 || index ==8) {
+            myLayout.setBackgroundResource(R.drawable.arm2_dot);
+        }
 
         assert myLayout != null;
         myLayout.setOnTouchListener(new RelativeLayout.OnTouchListener() {
@@ -59,7 +67,7 @@ public class CateterActivity extends AppCompatActivity {
                 this.cateter.setY(y);
                 if((dy-cateterHeight/2<=circleY+100) && ((dx<=circleX+100 && dx>=circleX-100)))
                 {
-                    startActivity(new Intent(CateterActivity.this, TirarGarroteActivity.class));
+                    startActivity(new Intent(CateterActivity.this, TirarGarroteActivity.class).putExtra("i", index));
 
                 }
             }

@@ -15,6 +15,7 @@ public class TirarGarroteActivity extends AppCompatActivity {
     private int lineX = 420;
     private int lineY = 660;
     private int garroten;
+    private int index;
 
     private RelativeLayout myLayout;
 
@@ -29,7 +30,14 @@ public class TirarGarroteActivity extends AppCompatActivity {
         this.garrote = (ImageView) findViewById(R.id.garrote);
         garrote.setVisibility(View.INVISIBLE);
         cateter.setVisibility(View.INVISIBLE);
+        index = getIntent().getIntExtra("i", -1);
 
+        if(index == 2 || index == 7) {
+            myLayout.setBackgroundResource(R.drawable.arm3_garrote_sinalizado_cateter);
+        }
+        else if(index == 3 || index ==8) {
+            myLayout.setBackgroundResource(R.drawable.arm2_garrote_sinalizado_cateter);
+        }
 
         assert myLayout != null;
         myLayout.setOnTouchListener(new RelativeLayout.OnTouchListener() {
@@ -66,11 +74,20 @@ public class TirarGarroteActivity extends AppCompatActivity {
             }
             if (garroten == 1) {
                 garrote.setVisibility(View.VISIBLE);
-                myLayout.setBackgroundResource(R.drawable.arm_bandeja_sinal);
+                if(index == 0 || index ==1 || index ==4 || index==5 || index ==6 || index==9){
+                    myLayout.setBackgroundResource(R.drawable.arm_bandeja_sinal);
+                }
+                else if(index == 2 || index == 7) {
+                    myLayout.setBackgroundResource(R.drawable.arm3_bandeja_sinal);
+                }
+                else if(index == 3 || index ==8) {
+                    myLayout.setBackgroundResource(R.drawable.arm2_bandeja_sinal);
+                }
+
                 if ((x - this.garrote.getX() <= 100 && x - this.garrote.getX() >= -100) && (y - this.garrote.getY() <= 100 && y - this.garrote.getY() >= -100)) {
-//                    if(dy>=1940){  // --> PARA O CEL DO CUNI
-                    if(dy>=1360){//--> PARA O TABLET
-                        startActivity(new Intent(TirarGarroteActivity.this, AdesivoActivity.class));
+                    if(dy>=1940){  // --> PARA O CEL DO CUNI
+//                    if(dy>=1360){//--> PARA O TABLET
+                        startActivity(new Intent(TirarGarroteActivity.this, AdesivoActivity.class).putExtra("i", index));
                     }
                     else{
                         // ®PC - Movendo o cateter

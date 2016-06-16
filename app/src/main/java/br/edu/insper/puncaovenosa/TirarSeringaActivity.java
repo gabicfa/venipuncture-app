@@ -17,6 +17,7 @@ public class TirarSeringaActivity extends AppCompatActivity {
     private int seringaY = 1445;
     private int seringan;
     private int seringan2=1;
+    private int index;
     private RelativeLayout myLayout;
 
     @Override
@@ -32,7 +33,14 @@ public class TirarSeringaActivity extends AppCompatActivity {
         seringa.setVisibility(View.INVISIBLE);
         cateter.setVisibility(View.INVISIBLE);
         adesivo.setVisibility(View.INVISIBLE);
+        index = getIntent().getIntExtra("i", -1);
 
+        if(index == 2 || index == 7) {
+            myLayout.setBackgroundResource(R.drawable.arm3_seringa_vazia);
+        }
+        else if(index == 3 || index ==8) {
+            myLayout.setBackgroundResource(R.drawable.arm2_seringa_vazia);
+        }
 
         assert myLayout != null;
         myLayout.setOnTouchListener(new RelativeLayout.OnTouchListener() {
@@ -70,13 +78,28 @@ public class TirarSeringaActivity extends AppCompatActivity {
                 seringa.setVisibility(View.VISIBLE);
 //                myLayout.setBackgroundResource(R.drawable.arm_bandeja_sinal);
                 if ((x - this.seringa.getX() <= 100 && x - this.seringa.getX() >= -100) && (y - this.seringa.getY() <= 100 && y - this.seringa.getY() >= -100)) {
-//                    if(dy>=1940){ --> PARA O CEL DO CUNI
-                    if(dy>=1360){//--> PARA O TABLET
-                        myLayout.setBackgroundResource(R.drawable.arm_adesivo);
+                    if(dy>=1940){ //--> PARA O CEL DO CUNI
+//                    if(dy>=1360){//--> PARA O TABLET
+                        if(index == 0 || index ==1 || index ==4 || index==5 || index ==6 || index==9){
+                            myLayout.setBackgroundResource(R.drawable.arm_bandeja_sinal_adesivo);
+                        }
+                        else if(index == 2 || index == 7) {
+                            myLayout.setBackgroundResource(R.drawable.arm3_bandeja_sinal_adesivo);
+                        }
+                        else if(index == 3 || index ==8) {
+                            myLayout.setBackgroundResource(R.drawable.arm2_bandeja_sinal_adesivo);}
+
                         seringan2 = 2;
                     }
                     else{
-                        myLayout.setBackgroundResource(R.drawable.arm_adesivo);
+                        if(index == 0 || index ==1 || index ==4 || index==5 || index ==6 || index==9){
+                            myLayout.setBackgroundResource(R.drawable.arm_bandeja_sinal_adesivo);
+                        }
+                        else if(index == 2 || index == 7) {
+                            myLayout.setBackgroundResource(R.drawable.arm3_bandeja_sinal_adesivo);
+                        }
+                        else if(index == 3 || index ==8) {
+                            myLayout.setBackgroundResource(R.drawable.arm2_bandeja_sinal_adesivo);}
                         this.seringa.setX(x);
                         this.seringa.setY(y);
                     }
@@ -85,9 +108,9 @@ public class TirarSeringaActivity extends AppCompatActivity {
             }
 
             if(seringan2 ==2 && seringan ==1){
-                this.seringa.setX(575);
-                this.seringa.setY(1465);
-                //dar um clock e ir para tela final
+                this.seringa.setX(675);
+                this.seringa.setY(1865);
+                startActivity(new Intent(TirarSeringaActivity.this, CertificateActivity.class));
             }
         }
     }

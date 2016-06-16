@@ -12,9 +12,12 @@ public class    MedicamentoActivity extends AppCompatActivity {
 
     private ImageView cateter;
     private ImageView seringa;
+    private ImageView adesivo;
     private int lineX = 715;
     private int lineY = 1445;
     private int seringan;
+    private int index;
+
 
     private RelativeLayout myLayout;
     @Override
@@ -26,9 +29,19 @@ public class    MedicamentoActivity extends AppCompatActivity {
 
         this.cateter = (ImageView) findViewById(R.id.cateter);
         this.seringa = (ImageView) findViewById(R.id.seringa);
+        this.adesivo = (ImageView) findViewById(R.id.adesivo);
         seringa.setVisibility(View.INVISIBLE);
         cateter.setVisibility(View.INVISIBLE);
+        adesivo.setVisibility(View.INVISIBLE);
 
+        index = getIntent().getIntExtra("i", -1);
+
+        if(index == 2 || index == 7) {
+            myLayout.setBackgroundResource(R.drawable.arm3_seringa_cateter);
+        }
+        else if(index == 3 || index ==8) {
+            myLayout.setBackgroundResource(R.drawable.arm2_seringa_cateter);
+        }
 
         assert myLayout != null;
         myLayout.setOnTouchListener(new RelativeLayout.OnTouchListener() {
@@ -55,8 +68,7 @@ public class    MedicamentoActivity extends AppCompatActivity {
                 seringan = 1;
             }
             if (seringan == 1) {
-                startActivity(new Intent(MedicamentoActivity.this, TirarSeringaActivity.class));
-
+                startActivity(new Intent(MedicamentoActivity.this, TirarSeringaActivity.class).putExtra("i", index));
             }
         }
     }

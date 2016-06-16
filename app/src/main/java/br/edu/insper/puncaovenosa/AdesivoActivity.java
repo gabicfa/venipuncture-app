@@ -15,6 +15,7 @@ public class AdesivoActivity extends AppCompatActivity {
     private ImageView adesivo;
     private int cateterX = 440;
     private int cateterY = 860;
+    private int index;
 
     private RelativeLayout myLayout;
 
@@ -28,7 +29,13 @@ public class AdesivoActivity extends AppCompatActivity {
         this.cateter = (ImageView) findViewById(R.id.cateter);
         this.adesivo= (ImageView) findViewById(R.id.adesivo);
         cateter.setVisibility(View.INVISIBLE);
-
+        index = getIntent().getIntExtra("i", -1);
+        if(index == 2 || index == 7) {
+            myLayout.setBackgroundResource(R.drawable.arm3_cateter);
+        }
+        else if(index == 3 || index ==8) {
+            myLayout.setBackgroundResource(R.drawable.arm2_cateter);
+        }
 
         assert myLayout != null;
         myLayout.setOnTouchListener(new RelativeLayout.OnTouchListener() {
@@ -58,10 +65,8 @@ public class AdesivoActivity extends AppCompatActivity {
                 if((dy-adesivoWidth/2<=cateterY+250) && ((dx+adesivoHeight/2<=cateterX+250 && dx-adesivoHeight/2>=cateterX-250)))
                 {
                     System.out.println("Colocou adesivo");
-                    myLayout.setBackgroundResource(R.drawable.arm_adesivo);
                     adesivo.setVisibility(View.INVISIBLE);
-                    startActivity(new Intent(AdesivoActivity.this, SeringaActivity.class));
-
+                    startActivity(new Intent(AdesivoActivity.this, SeringaActivity.class).putExtra("i", index));
                 }
             }
         }

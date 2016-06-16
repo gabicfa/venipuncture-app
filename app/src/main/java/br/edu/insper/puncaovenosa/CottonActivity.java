@@ -17,6 +17,7 @@ public class CottonActivity extends AppCompatActivity {
     private ImageView garrote;
 
     private RelativeLayout myLayout;
+    private int index;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,16 @@ public class CottonActivity extends AppCompatActivity {
         this.counter = 350;
 
         garrote.setVisibility(View.INVISIBLE);
+
+        index = getIntent().getIntExtra("i", -1);
+
+
+        if(index == 2 || index == 7) {
+            myLayout.setBackgroundResource(R.drawable.arm3_germes);
+        }
+        else if(index == 3 || index ==8) {
+            myLayout.setBackgroundResource(R.drawable.arm2_germes);
+        }
 
         assert myLayout != null;
         myLayout.setOnTouchListener(new RelativeLayout.OnTouchListener() {
@@ -114,11 +125,30 @@ public class CottonActivity extends AppCompatActivity {
                         // PC - Se ela estiver, reduzimos o contador de "sujeiras" em um
                         System.out.println("Counter: " + this.counter);
                         if(this.counter<235 && this.counter>118){
-                            myLayout.setBackgroundResource(R.drawable.arm_germes2);
+
+                            if(index == 0 || index ==1 || index ==4 || index==5 || index ==6 || index==9){
+                                myLayout.setBackgroundResource(R.drawable.arm_germes2);
+                            }
+                            else if(index == 2 || index == 7) {
+                                myLayout.setBackgroundResource(R.drawable.arm3_germes2);
+                            }
+                            else if(index == 3 || index ==8) {
+                                myLayout.setBackgroundResource(R.drawable.arm2_germes2);
+                            }
+
                         }
                         else{
                             if(this.counter<=118){
-                                myLayout.setBackgroundResource(R.drawable.arm_germes1);
+                                if(index == 0 || index ==1 || index ==4 || index==5 || index ==6 || index==9){
+                                    myLayout.setBackgroundResource(R.drawable.arm_germes1);
+                                }
+                                else if(index == 2 || index == 7) {
+                                    myLayout.setBackgroundResource(R.drawable.arm3_germes1);
+                                }
+                                else if(index == 3 || index ==8) {
+                                    myLayout.setBackgroundResource(R.drawable.arm2_germes1);
+                                }
+
                             }
                         }
                     }
@@ -126,7 +156,7 @@ public class CottonActivity extends AppCompatActivity {
             } else {
                 // PC - Se o contador chegou a zero, significa que o braço está limpo e devemos, portanto
                 //      devemos mudar de activity
-                startActivity(new Intent(CottonActivity.this, CateterActivity.class));
+                startActivity(new Intent(CottonActivity.this, CateterActivity.class).putExtra("i", index));
             }
         }
     }

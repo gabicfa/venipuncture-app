@@ -16,6 +16,7 @@ public class GarroteActivity extends AppCompatActivity {
     private int lineY = 675;
 
     private RelativeLayout myLayout;
+    private int index;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +24,22 @@ public class GarroteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_garrote);
 
         myLayout = (RelativeLayout) findViewById(R.id.garrote_activity);
+        assert myLayout != null;
+
 
         this.garrote = (ImageView) findViewById(R.id.garrote);
+        index = getIntent().getIntExtra("i", -1);
 
 
-        assert myLayout != null;
+        if(index == 2 || index == 7) {
+            myLayout.setBackgroundResource(R.drawable.arm3_sinal_garrote);
+        }
+        else if(index == 3 || index ==8) {
+            myLayout.setBackgroundResource(R.drawable.arm2_sinal_garrote);
+        }
+
+
+
         myLayout.setOnTouchListener(new RelativeLayout.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent m) {
                 handleTouch(m);
@@ -54,7 +66,7 @@ public class GarroteActivity extends AppCompatActivity {
                 this.garrote.setY(y);
                 if((dy<=lineY+100) && ((dx<=lineX+200 && dx>=lineX-100)))
                 {
-                    startActivity(new Intent(GarroteActivity.this, CottonActivity.class));
+                    startActivity(new Intent(GarroteActivity.this, CottonActivity.class).putExtra("i", index));
 
                 }
             }

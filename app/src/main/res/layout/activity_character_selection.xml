@@ -46,6 +46,31 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/image_btn_brunette2"
+                android:layout_weight="1"
+                android:layout_gravity="left"
+                android:background="@null"
+                android:src="@drawable/girl4"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/image_btn_brunette2_boy"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                android:background="@null"
+                android:src="@drawable/boy4"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/image_btn_brunette"
                 android:layout_weight="1"
                 android:layout_gravity="left"
@@ -60,6 +85,30 @@
                 android:layout_gravity="right"
                 android:background="@null"
                 android:src="@drawable/boy2"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/image_btn_bold"
+                android:layout_weight="1"
+                android:layout_gravity="left"
+                android:background="@null"
+                android:src="@drawable/girl5"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/image_btn_bold_boy"
+                android:layout_weight="1"
+                android:background="@null"
+                android:src="@drawable/boy5"/>
 
         </LinearLayout>
 
@@ -89,55 +138,6 @@
 
         </LinearLayout>
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/image_btn_brunette2"
-                android:layout_weight="1"
-                android:layout_gravity="left"
-                android:background="@null"
-                android:src="@drawable/girl4"/>
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/image_btn_brunette2_boy"
-                android:layout_weight="1"
-                android:layout_gravity="right"
-                android:background="@null"
-                android:src="@drawable/boy4"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/image_btn_bold"
-                android:layout_weight="1"
-                android:layout_gravity="left"
-                android:background="@null"
-                android:src="@drawable/girl5"/>
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/image_btn_bold_boy"
-                android:layout_weight="1"
-                android:background="@null"
-                android:src="@drawable/boy5"/>
-
-        </LinearLayout>
 
     </LinearLayout>
 
