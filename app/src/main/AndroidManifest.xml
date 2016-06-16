@@ -48,7 +48,9 @@
         <activity
             android:name=".TirarSeringaActivity"
             android:theme="@style/NoActionBar" />
-        <activity android:name=".CertificateActivity"></activity>
+        <activity
+            android:name=".CertificateActivity"
+            android:theme="@style/NoActionBar" />
     </application>
 
 </manifest>
