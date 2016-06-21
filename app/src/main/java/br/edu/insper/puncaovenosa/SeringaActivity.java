@@ -12,35 +12,46 @@ public class SeringaActivity extends AppCompatActivity {
 
     private ImageView seringa;
     private ImageView cateter;
-    private ImageView adesivo;
     private int cateterX = 590;
     private int cateterY = 1035;
     private int index;
 
-
-    private RelativeLayout myLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seringa);
 
-        myLayout = (RelativeLayout) findViewById(R.id.seringa_activity);
+        RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.seringa_activity);
 
+        ImageView adesivo = (ImageView) findViewById(R.id.adesivo);
         this.seringa = (ImageView) findViewById(R.id.seringa);
         this.cateter = (ImageView) findViewById(R.id.cateter);
-        this.adesivo = (ImageView) findViewById(R.id.adesivo);
-        cateter.setVisibility(View.INVISIBLE);
+
+        assert adesivo != null;
         adesivo.setVisibility(View.INVISIBLE);
+        cateter.setVisibility(View.INVISIBLE);
+
         index = getIntent().getIntExtra("i", -1);
 
+        // PC - Definimos uma constante X para multiplicar pelo valor da tela e encontrar a posição
+        //      em porcentagem na tela (mesmo para Y)
+        int width = getWindowManager().getDefaultDisplay().getWidth();   // Conseguir a largura da tela
+        int height = getWindowManager().getDefaultDisplay().getHeight(); // e a altura
+
+        double xMultiplier = (double) 590 / 1440;
+        double yMultiplier = (double) 1035 / 2560;
+
+        this.cateterX = (int) (width * xMultiplier);
+        this.cateterY = (int) (height * yMultiplier);
+
+        assert myLayout != null;
         if(index == 2 || index == 7) {
             myLayout.setBackgroundResource(R.drawable.arm3_cateter_sinalizado);
         }
         else if(index == 3 || index ==8) {
             myLayout.setBackgroundResource(R.drawable.arm2_cateter_sinalizado);
         }
-        assert myLayout != null;
         myLayout.setOnTouchListener(new RelativeLayout.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent m) {
                 handleTouch(m);
@@ -66,10 +77,10 @@ public class SeringaActivity extends AppCompatActivity {
             System.out.println("Cateter X: " + cateter.getX() + ", finger X: " + x);
             System.out.println("Cateter Y: " + cateter.getY() + ", finger Y: " + y);
 
-            if ((x - this.seringa.getX() <= 100 && x - this.seringa.getX() >= -100) && (y - this.seringa.getY() <= 100 && y - this.seringa.getY() >= -100)) {
+            if ((x - this.seringa.getX() <= 150 && x - this.seringa.getX() >= -150) && (y - this.seringa.getY() <= 150 && y - this.seringa.getY() >= -150)) {
                 this.seringa.setX(x);
                 this.seringa.setY(y);
-                if((dy-seringaHeight/2<=cateterY+200) && ((dx+seringaWidth/2<=cateterX+300 && dx+seringaWidth/2>=cateterX-300))) {
+                if(((dy - seringaHeight / 2 <= cateterY + 200) && (dy - seringaHeight / 2 >= cateterY - 200)) && ((dx+seringaWidth/2<=cateterX+300 && dx+seringaWidth/2>=cateterX-300))) {
                     startActivity(new Intent(SeringaActivity.this, MedicamentoActivity.class).putExtra("i", index));
                 }
             }

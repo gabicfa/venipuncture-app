@@ -10,14 +10,15 @@ import android.widget.RelativeLayout;
 
 public class TirarSeringaActivity extends AppCompatActivity {
 
-    private ImageView cateter;
     private ImageView seringa;
-    private ImageView adesivo;
-    private int seringaX = 595;
-    private int seringaY = 1445;
-    private int seringan;
-    private int seringan2=1;
+
+    private int seringaX;
+    private int seringaY;
+    private int bandejaY;
+    private int seringan  = 0;
+    private int seringan2 = 1;
     private int index;
+
     private RelativeLayout myLayout;
 
     @Override
@@ -27,13 +28,30 @@ public class TirarSeringaActivity extends AppCompatActivity {
 
         myLayout = (RelativeLayout) findViewById(R.id.tirarseringa_activity);
 
-        this.cateter = (ImageView) findViewById(R.id.cateter);
+        ImageView cateter = (ImageView) findViewById(R.id.cateter);
+        ImageView adesivo = (ImageView) findViewById(R.id.adesivo);
         this.seringa = (ImageView) findViewById(R.id.seringa);
-        this.adesivo = (ImageView) findViewById(R.id.adesivo);
-        seringa.setVisibility(View.INVISIBLE);
+
+        assert cateter != null;
+        assert adesivo != null;
         cateter.setVisibility(View.INVISIBLE);
         adesivo.setVisibility(View.INVISIBLE);
+        seringa.setVisibility(View.INVISIBLE);
+
         index = getIntent().getIntExtra("i", -1);
+
+        // PC - Definimos uma constante X para multiplicar pelo valor da tela e encontrar a posição
+        //      em porcentagem na tela (mesmo para Y)
+        int width = getWindowManager().getDefaultDisplay().getWidth();   // Conseguir a largura da tela
+        int height = getWindowManager().getDefaultDisplay().getHeight(); // e a altura
+
+        double xMultiplier = (double) 595 / 1440;
+        double yMultiplier = (double) 1445 / 2560;
+        double bandejaMultiplier = (double) 1940 / 2560;
+
+        this.seringaX = (int) (width * xMultiplier);
+        this.seringaY = (int) (height * yMultiplier);
+        this.bandejaY = (int) (height * bandejaMultiplier);
 
         if(index == 2 || index == 7) {
             myLayout.setBackgroundResource(R.drawable.arm3_seringa_vazia);
@@ -64,22 +82,17 @@ public class TirarSeringaActivity extends AppCompatActivity {
             int x = dx - seringaWidth / 2;
             int y = dy - seringaHeight / 2;
 
-
-            System.out.println("Cateter X: " + seringa.getX() + ", finger X: " + x);
-            System.out.println("Cateter Y: " + seringa.getY() + ", finger Y: " + y);
-
-            if ((dy <= seringaY + 150) && ((dx <= seringaX + 200 && dx >= seringaX - 200))) {
-                System.out.println("seringa");
-                this.seringa.setX(x);
-                this.seringa.setY(y);
-                seringan = 1;
+            if(seringan == 0) {
+                if ((dy <= seringaY + 150) && ((dx <= seringaX + 200 && dx >= seringaX - 200))) {
+                    this.seringa.setX(x);
+                    this.seringa.setY(y);
+                    seringan = 1;
+                }
             }
-            if (seringan == 1 && seringan2==1) {
+            if (seringan == 1 && seringan2 == 1) {
                 seringa.setVisibility(View.VISIBLE);
-//                myLayout.setBackgroundResource(R.drawable.arm_bandeja_sinal);
                 if ((x - this.seringa.getX() <= 100 && x - this.seringa.getX() >= -100) && (y - this.seringa.getY() <= 100 && y - this.seringa.getY() >= -100)) {
-                    if(dy>=1940){ //--> PARA O CEL DO CUNI
-//                    if(dy>=1360){//--> PARA O TABLET
+                    if(dy>=bandejaY){
                         if(index == 0 || index ==1 || index ==4 || index==5 || index ==6 || index==9){
                             myLayout.setBackgroundResource(R.drawable.arm_bandeja_sinal_adesivo);
                         }
@@ -87,8 +100,8 @@ public class TirarSeringaActivity extends AppCompatActivity {
                             myLayout.setBackgroundResource(R.drawable.arm3_bandeja_sinal_adesivo);
                         }
                         else if(index == 3 || index ==8) {
-                            myLayout.setBackgroundResource(R.drawable.arm2_bandeja_sinal_adesivo);}
-
+                            myLayout.setBackgroundResource(R.drawable.arm2_bandeja_sinal_adesivo);
+                        }
                         seringan2 = 2;
                     }
                     else{
@@ -99,7 +112,8 @@ public class TirarSeringaActivity extends AppCompatActivity {
                             myLayout.setBackgroundResource(R.drawable.arm3_bandeja_sinal_adesivo);
                         }
                         else if(index == 3 || index ==8) {
-                            myLayout.setBackgroundResource(R.drawable.arm2_bandeja_sinal_adesivo);}
+                            myLayout.setBackgroundResource(R.drawable.arm2_bandeja_sinal_adesivo);
+                        }
                         this.seringa.setX(x);
                         this.seringa.setY(y);
                     }
@@ -107,9 +121,7 @@ public class TirarSeringaActivity extends AppCompatActivity {
                 }
             }
 
-            if(seringan2 ==2 && seringan ==1){
-                this.seringa.setX(675);
-                this.seringa.setY(1865);
+            if(seringan2 == 2 && seringan == 1){
                 startActivity(new Intent(TirarSeringaActivity.this, CertificateActivity.class));
             }
         }

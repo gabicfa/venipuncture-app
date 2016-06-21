@@ -3,6 +3,7 @@ package br.edu.insper.puncaovenosa;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -12,10 +13,8 @@ import android.widget.RelativeLayout;
 public class GarroteActivity extends AppCompatActivity {
 
     private ImageView garrote;
-    private int lineX = 400;
-    private int lineY = 675;
-
-    private RelativeLayout myLayout;
+    private int lineX;
+    private int lineY;
     private int index;
 
     @Override
@@ -23,13 +22,22 @@ public class GarroteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_garrote);
 
-        myLayout = (RelativeLayout) findViewById(R.id.garrote_activity);
+        RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.garrote_activity);
         assert myLayout != null;
 
+        // PC - Definimos uma constante X para multiplicar pelo valor da tela e encontrar a posição
+        //      em porcentagem na tela (mesmo para Y)
+        int width = getWindowManager().getDefaultDisplay().getWidth();   // Conseguir a largura da tela
+        int height = getWindowManager().getDefaultDisplay().getHeight(); // e a altura
+
+        double xMultiplier = (double) 400 / 1440;
+        double yMultiplier = (double) 675 / 2560;
+
+        this.lineX = (int) (width * xMultiplier);
+        this.lineY = (int) (height * yMultiplier);
 
         this.garrote = (ImageView) findViewById(R.id.garrote);
         index = getIntent().getIntExtra("i", -1);
-
 
         if(index == 2 || index == 7) {
             myLayout.setBackgroundResource(R.drawable.arm3_sinal_garrote);

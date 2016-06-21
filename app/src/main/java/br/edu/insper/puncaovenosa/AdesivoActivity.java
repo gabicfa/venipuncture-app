@@ -11,25 +11,36 @@ import android.widget.RelativeLayout;
 
 public class AdesivoActivity extends AppCompatActivity {
 
-    private ImageView cateter;
     private ImageView adesivo;
-    private int cateterX = 440;
-    private int cateterY = 860;
+    private int adesivoX;
+    private int adesivoY;
     private int index;
-
-    private RelativeLayout myLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adesivo);
 
-        myLayout = (RelativeLayout) findViewById(R.id.adesivo_activity);
+        RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.adesivo_activity);
 
-        this.cateter = (ImageView) findViewById(R.id.cateter);
+        ImageView cateter = (ImageView) findViewById(R.id.cateter);
         this.adesivo= (ImageView) findViewById(R.id.adesivo);
+        assert cateter != null;
         cateter.setVisibility(View.INVISIBLE);
         index = getIntent().getIntExtra("i", -1);
+
+        // PC - Definimos uma constante X para multiplicar pelo valor da tela e encontrar a posição
+        //      em porcentagem na tela (mesmo para Y)
+        int width = getWindowManager().getDefaultDisplay().getWidth();   // Conseguir a largura da tela
+        int height = getWindowManager().getDefaultDisplay().getHeight(); // e a altura
+
+        double xMultiplier = (double) 440 / 1440;
+        double yMultiplier = (double) 860 / 2560;
+
+        this.adesivoX = (int) (width * xMultiplier);
+        this.adesivoY = (int) (height * yMultiplier);
+
+        assert myLayout != null;
         if(index == 2 || index == 7) {
             myLayout.setBackgroundResource(R.drawable.arm3_cateter);
         }
@@ -37,7 +48,6 @@ public class AdesivoActivity extends AppCompatActivity {
             myLayout.setBackgroundResource(R.drawable.arm2_cateter);
         }
 
-        assert myLayout != null;
         myLayout.setOnTouchListener(new RelativeLayout.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent m) {
                 handleTouch(m);
@@ -59,13 +69,11 @@ public class AdesivoActivity extends AppCompatActivity {
             int x = dx - adesivoWidth / 2;
             int y = dy - adesivoWidth / 2;
 
-            if ((x - this.adesivo.getX() <= 100 && x - this.adesivo.getX() >= -100) && (y - this.adesivo.getY() <= 100 && y - this.adesivo.getY() >= -100)) {
+            if ((x - this.adesivo.getX() <= 200 && x - this.adesivo.getX() >= -200) && (y - this.adesivo.getY() <= 200 && y - this.adesivo.getY() >= -200)) {
                 this.adesivo.setX(x);
                 this.adesivo.setY(y);
-                if((dy-adesivoWidth/2<=cateterY+250) && ((dx+adesivoHeight/2<=cateterX+250 && dx-adesivoHeight/2>=cateterX-250)))
+                if(((dy - adesivoHeight / 2 <= adesivoY + 250) && (dy - adesivoHeight / 2 >= adesivoY - 250)) && ((dx+adesivoWidth/2<=adesivoX+250 && dx-adesivoWidth/2>=adesivoX-250)))
                 {
-                    System.out.println("Colocou adesivo");
-                    adesivo.setVisibility(View.INVISIBLE);
                     startActivity(new Intent(AdesivoActivity.this, SeringaActivity.class).putExtra("i", index));
                 }
             }
