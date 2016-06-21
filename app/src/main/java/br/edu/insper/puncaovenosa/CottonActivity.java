@@ -14,7 +14,12 @@ public class CottonActivity extends AppCompatActivity {
     private int counter; // PC - Contador para saber se o braço fora limpo
 
     private ImageView cotton;
-    private ImageView garrote;
+
+    // Valores das quinas do quadrilatero que define a área a ser limpa
+    private int xMin;
+    private int xMax;
+    private int yMin;
+    private int yMax;
 
     private RelativeLayout myLayout;
     private int index;
@@ -27,9 +32,25 @@ public class CottonActivity extends AppCompatActivity {
         myLayout = (RelativeLayout) findViewById(R.id.cotton_activity);
 
         this.cotton  = (ImageView) findViewById(R.id.algodao);
-        this.garrote = (ImageView) findViewById(R.id.garrote);
-        this.counter = 350;
+        ImageView garrote = (ImageView) findViewById(R.id.garrote);
+        this.counter = 250;
 
+        // PC - Definimos uma constante X para multiplicar pelo valor da tela e encontrar a posição
+        //      em porcentagem na tela (mesmo para Y)
+        int width = getWindowManager().getDefaultDisplay().getWidth();   // Conseguir a largura da tela
+        int height = getWindowManager().getDefaultDisplay().getHeight(); // e a altura
+
+        double xMinMultiplier = (double) 250 / 1440;
+        double xMaxMultiplier = (double) 520 / 1440;
+        double yMinMultiplier = (double) 550 / 2560;
+        double yMaxMultiplier = (double) 930 / 2560;
+
+        this.xMin = (int) (width * xMinMultiplier);
+        this.xMax = (int) (width * xMaxMultiplier);
+        this.yMin = (int) (height * yMinMultiplier);
+        this.yMax = (int) (height * yMaxMultiplier);
+
+        assert garrote != null;
         garrote.setVisibility(View.INVISIBLE);
 
         index = getIntent().getIntExtra("i", -1);
@@ -69,62 +90,23 @@ public class CottonActivity extends AppCompatActivity {
             int y = (int) m.getY(i);
             x -= cottonWidth / 2;
             y -= cottonHeight / 2;
-//
-//            int id = m.getPointerId(i);
-//            int action = m.getActionMasked();
-//            int actionIndex = m.getActionIndex();
-//            String actionString;
-//
-//            switch (action)
-//            {
-//                /* PC - Atualmente esse switch case não é necessário,
-//                 *      usei ele para entender como funciona o sensor
-//                 *      de touch do android, se alguem estiver com
-//                 *      dúvida, recomendo descomentar este bloco
-//                 *      para entender melhor */
-//                case MotionEvent.ACTION_DOWN:
-//                    actionString = "DOWN";
-//                    break;
-//                case MotionEvent.ACTION_UP:
-//                    actionString = "UP";
-//                    break;
-//                case MotionEvent.ACTION_POINTER_DOWN:
-//                    actionString = "PNTR DOWN";
-//                    break;
-//                case MotionEvent.ACTION_POINTER_UP:
-//                    actionString = "PNTR UP";
-//                    break;
-//                case MotionEvent.ACTION_MOVE:
-//                    actionString = "MOVE";
-//                    break;
-//                default:
-//                    actionString = "";
-//            }
-//
-//            String touchStatus = "Action: " + actionString + " Index: " + actionIndex + " ID: " + id + " X: " + x + " Y: " + y;
-//
-//            System.out.println(touchStatus);
-
-            System.out.println("Cotton X: " + cotton.getX() + ", finger X: " + x);
-            System.out.println("Cotton Y: " + cotton.getY() + ", finger Y: " + y);
-
 
             if(this.counter > 0) {
                 // PC - Precisamos checar se a pessoa está apertando em um lugar relativamente proximo
                 //      a onde esta o algodão (ou estava), se estiver, podemos movê-lo, caso contrário,
                 //      nada acontece.
-                if((x - this.cotton.getX() <= 100 && x - this.cotton.getX() >= -100) && (y - this.cotton.getY() <= 100 && y -this.cotton.getY() >= -100)) {
+                if((x - this.cotton.getX() <= 200 && x - this.cotton.getX() >= -200) && (y - this.cotton.getY() <= 200 && y -this.cotton.getY() >= -200)) {
                     // PC - Movendo o algodão
                     this.cotton.setX(x);
                     this.cotton.setY(y);
-                    this.counter--;
 
                     // PC - Se a pessoa está movendo o algodão, checamos se ela está de fato sobre uma
                     //      área a ser limpada
-                    if((x >= 250 && x <= 520) && (y >= 550 && y <= 930)) {
+                    if((x >= xMin && x <= xMax) && (y >= yMin && y <= yMax)) {
                         // PC - Se ela estiver, reduzimos o contador de "sujeiras" em um
+                        this.counter--;
                         System.out.println("Counter: " + this.counter);
-                        if(this.counter<235 && this.counter>118){
+                        if(this.counter<180 && this.counter>80){
 
                             if(index == 0 || index ==1 || index ==4 || index==5 || index ==6 || index==9){
                                 myLayout.setBackgroundResource(R.drawable.arm_germes2);
@@ -138,7 +120,7 @@ public class CottonActivity extends AppCompatActivity {
 
                         }
                         else{
-                            if(this.counter<=118){
+                            if(this.counter<=80){
                                 if(index == 0 || index ==1 || index ==4 || index==5 || index ==6 || index==9){
                                     myLayout.setBackgroundResource(R.drawable.arm_germes1);
                                 }

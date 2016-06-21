@@ -10,9 +10,7 @@ import android.widget.RelativeLayout;
 
 public class TirarSeringaActivity extends AppCompatActivity {
 
-    private ImageView cateter;
     private ImageView seringa;
-    private ImageView adesivo;
     private int seringaX = 595;
     private int seringaY = 1445;
     private int seringan;
@@ -27,13 +25,28 @@ public class TirarSeringaActivity extends AppCompatActivity {
 
         myLayout = (RelativeLayout) findViewById(R.id.tirarseringa_activity);
 
-        this.cateter = (ImageView) findViewById(R.id.cateter);
+        ImageView cateter = (ImageView) findViewById(R.id.cateter);
+        ImageView adesivo = (ImageView) findViewById(R.id.adesivo);
         this.seringa = (ImageView) findViewById(R.id.seringa);
-        this.adesivo = (ImageView) findViewById(R.id.adesivo);
-        seringa.setVisibility(View.INVISIBLE);
+
+        assert cateter != null;
+        assert adesivo != null;
         cateter.setVisibility(View.INVISIBLE);
         adesivo.setVisibility(View.INVISIBLE);
+        seringa.setVisibility(View.INVISIBLE);
+
         index = getIntent().getIntExtra("i", -1);
+
+        // PC - Definimos uma constante X para multiplicar pelo valor da tela e encontrar a posição
+        //      em porcentagem na tela (mesmo para Y)
+        int width = getWindowManager().getDefaultDisplay().getWidth();   // Conseguir a largura da tela
+        int height = getWindowManager().getDefaultDisplay().getHeight(); // e a altura
+
+        double xMultiplier = (double) 595 / 1440;
+        double yMultiplier = (double) 1445 / 2560;
+
+        this.seringaX = (int) (width * xMultiplier);
+        this.seringaY = (int) (height * yMultiplier);
 
         if(index == 2 || index == 7) {
             myLayout.setBackgroundResource(R.drawable.arm3_seringa_vazia);

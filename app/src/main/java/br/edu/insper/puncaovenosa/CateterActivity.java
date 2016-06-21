@@ -12,11 +12,9 @@ import android.widget.RelativeLayout;
 public class CateterActivity extends AppCompatActivity {
 
     private ImageView cateter;
-    private ImageView garrote;
-    private int circleX = 560;
-    private int circleY = 765;
+    private int circleX;
+    private int circleY;
 
-    private RelativeLayout myLayout;
     private int index;
 
     @Override
@@ -24,13 +22,28 @@ public class CateterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cateter);
 
-        myLayout = (RelativeLayout) findViewById(R.id.cateter_activity);
+        RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.cateter_activity);
+
+        ImageView garrote = (ImageView) findViewById(R.id.garrote);
+        assert garrote != null;
+        garrote.setVisibility(View.INVISIBLE);
 
         this.cateter = (ImageView) findViewById(R.id.cateter);
-        this.garrote = (ImageView) findViewById(R.id.garrote);
-        garrote.setVisibility(View.INVISIBLE);
+
         index = getIntent().getIntExtra("i", -1);
 
+        // PC - Definimos uma constante X para multiplicar pelo valor da tela e encontrar a posição
+        //      em porcentagem na tela (mesmo para Y)
+        int width = getWindowManager().getDefaultDisplay().getWidth();   // Conseguir a largura da tela
+        int height = getWindowManager().getDefaultDisplay().getHeight(); // e a altura
+
+        double xMultiplier = (double) 560 / 1440;
+        double yMultiplier = (double) 765 / 2560;
+
+        this.circleX = (int) (width * xMultiplier);
+        this.circleY = (int) (height * yMultiplier);
+
+        assert myLayout != null;
         if(index == 2 || index == 7) {
             myLayout.setBackgroundResource(R.drawable.arm3_dot);
         }
@@ -38,7 +51,6 @@ public class CateterActivity extends AppCompatActivity {
             myLayout.setBackgroundResource(R.drawable.arm2_dot);
         }
 
-        assert myLayout != null;
         myLayout.setOnTouchListener(new RelativeLayout.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent m) {
                 handleTouch(m);
@@ -62,10 +74,10 @@ public class CateterActivity extends AppCompatActivity {
 
 
 
-            if ((x - this.cateter.getX() <= 100 && x - this.cateter.getX() >= -100) && (y - this.cateter.getY() <= 100 && y - this.cateter.getY() >= -100)) {
+            if ((x - this.cateter.getX() <= 200 && x - this.cateter.getX() >= -200) && (y - this.cateter.getY() <= 200 && y - this.cateter.getY() >= -200)) {
                 this.cateter.setX(x);
                 this.cateter.setY(y);
-                if((dy-cateterHeight/2<=circleY+100) && ((dx<=circleX+100 && dx>=circleX-100)))
+                if(((dy - cateterHeight / 2 <= circleY + 200) && (dy - cateterHeight / 2 >= circleY - 200)) && ((dx<=circleX+200 && dx>=circleX-200)))
                 {
                     startActivity(new Intent(CateterActivity.this, TirarGarroteActivity.class).putExtra("i", index));
 

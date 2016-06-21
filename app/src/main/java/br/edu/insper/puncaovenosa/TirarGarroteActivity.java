@@ -10,11 +10,11 @@ import android.widget.RelativeLayout;
 
 public class TirarGarroteActivity extends AppCompatActivity {
 
-    private ImageView cateter;
     private ImageView garrote;
-    private int lineX = 420;
-    private int lineY = 660;
-    private int garroten;
+    private int garroteX;
+    private int garroteY;
+    private int bandejaY;
+    private int garroten = 0;
     private int index;
 
     private RelativeLayout myLayout;
@@ -26,11 +26,26 @@ public class TirarGarroteActivity extends AppCompatActivity {
 
         myLayout = (RelativeLayout) findViewById(R.id.tirargarrote_activity);
 
-        this.cateter = (ImageView) findViewById(R.id.cateter);
+        ImageView cateter = (ImageView) findViewById(R.id.cateter);
         this.garrote = (ImageView) findViewById(R.id.garrote);
+        assert garrote != null;
+        assert cateter != null;
         garrote.setVisibility(View.INVISIBLE);
         cateter.setVisibility(View.INVISIBLE);
         index = getIntent().getIntExtra("i", -1);
+
+        // PC - Definimos uma constante X para multiplicar pelo valor da tela e encontrar a posição
+        //      em porcentagem na tela (mesmo para Y)
+        int width = getWindowManager().getDefaultDisplay().getWidth();   // Conseguir a largura da tela
+        int height = getWindowManager().getDefaultDisplay().getHeight(); // e a altura
+
+        double xMultiplier = (double) 420 / 1440;
+        double yMultiplier = (double) 660 / 2560;
+        double bandejaMultiplier = (double) 1940 / 2560;
+
+        this.garroteX = (int) (width * xMultiplier);
+        this.garroteY = (int) (height * yMultiplier);
+        this.bandejaY = (int) (height * bandejaMultiplier);
 
         if(index == 2 || index == 7) {
             myLayout.setBackgroundResource(R.drawable.arm3_garrote_sinalizado_cateter);
@@ -61,17 +76,15 @@ public class TirarGarroteActivity extends AppCompatActivity {
             int x = dx - garroteWidth / 2;
             int y = dy - garroteHeight / 2;
 
-
-            System.out.println("Cateter X: " + garrote.getX() + ", finger X: " + x);
-            System.out.println("Cateter Y: " + garrote.getY() + ", finger Y: " + y);
-
-            if ((dy <= lineY + 150) && ((dx <= lineX + 200 && dx >= lineX - 200))) {
-                System.out.println("garrote");
-                this.garrote.setX(x);
-                this.garrote.setY(y);
-                garroten = 1;
-                //startActivity(new Intent(Tri.this, TirarGarroteActivity.class));
+            if(garroten != 1) {
+                // Soltar o garrote
+                if (((dy <= garroteY + 150) && (dy >= garroteY - 150)) && ((dx <= garroteX + 200 && dx >= garroteX - 200))) {
+                    this.garrote.setX(x);
+                    this.garrote.setY(y);
+                    garroten = 1;
+                }
             }
+
             if (garroten == 1) {
                 garrote.setVisibility(View.VISIBLE);
                 if(index == 0 || index ==1 || index ==4 || index==5 || index ==6 || index==9){
@@ -85,8 +98,7 @@ public class TirarGarroteActivity extends AppCompatActivity {
                 }
 
                 if ((x - this.garrote.getX() <= 100 && x - this.garrote.getX() >= -100) && (y - this.garrote.getY() <= 100 && y - this.garrote.getY() >= -100)) {
-                    if(dy>=1940){  // --> PARA O CEL DO CUNI
-//                    if(dy>=1360){//--> PARA O TABLET
+                    if(dy>=bandejaY){
                         startActivity(new Intent(TirarGarroteActivity.this, AdesivoActivity.class).putExtra("i", index));
                     }
                     else{
